@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso DaviPlata | ARA Consultora</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: { 
+                extend: { 
+                    colors: { 
+                        brand: { 
+                            darkest: '#0a221a', /* Verde oscuro ARA */
+                            dark: '#1b4332',    /* Verde corporativo principal ARA */
+                            mid: '#2d6a4f',     /* Verde medio ARA */
+                            soft: '#f0fdf4',    /* Fondo verde claro ARA */
+                            accent: '#cba365',  /* Dorado de acento ARA */
+                            red: '#e30613',     /* Rojo corporativo DaviPlata (Acentuación) */
+                            redsoft: '#fef2f2'  /* Fondo rojo muy suave para alertas de riesgo */
+                        } 
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif']
+                    }
+                } 
+            }
+        }
+    </script>
+    <style>
+        .card-shadow {
+            box-shadow: 0 10px 40px -10px rgba(27, 67, 50, 0.08);
+            transition: all 0.3s ease;
+        }
+        .card-shadow:hover {
+            box-shadow: 0 20px 40px -10px rgba(27, 67, 50, 0.15);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-700 font-sans antialiased overflow-x-hidden">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="bg-white border-b border-slate-200 py-4 px-6 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="text-brand-dark hover:text-brand-mid font-bold flex items-center gap-2 transition-colors">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="text-sm font-title uppercase tracking-wider">Volver al Inicio</span>
+            </a>
+            <span class="text-xs uppercase tracking-widest font-extrabold text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
+                Caso de Estudio: DaviPlata S.A.
+            </span>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="relative min-h-[70vh] flex items-center bg-white">
+        <!-- Imagen de fondo Hero -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=1920" alt="Inclusión financiera y tecnología móvil" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40 md:to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 w-full">
+            <div class="max-w-2xl py-12">
+                <div class="inline-flex items-center gap-2 bg-brand-soft border border-brand-mid/20 px-4 py-1.5 rounded-full text-brand-dark text-xs font-bold tracking-widest uppercase mb-6">
+                    <i class="fa-solid fa-credit-card text-brand-red"></i> Caso DaviPlata
+                </div>
+                
+                <h1 class="font-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-darkest tracking-tight leading-tight mb-6">
+                    Inclusión Financiera: <br>
+                    <span class="text-brand-mid">Estrategia y Coherencia Ética</span>
+                </h1>
+                
+                <p class="text-lg text-slate-600 font-light mb-8 leading-relaxed">
+                    Cómo equilibramos la rentabilidad del negocio con el bienestar de la gente en el ecosistema digital de DaviPlata.
+                </p>
+
+                <!-- KPIs DESTACADOS EN BURBUJAS -->
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow text-center min-w-[140px]">
+                        <span class="block text-2xl font-bold text-brand-mid">+1.8 M</span>
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Usuarios Iniciales</span>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow text-center min-w-[140px]">
+                        <span class="block text-2xl font-bold text-brand-mid">45 M</span>
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Transacciones Anuales</span>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow text-center min-w-[140px]">
+                        <span class="block text-2xl font-bold text-brand-mid">COP 4 B</span>
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Capital Movilizado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. EL DESAFÍO (THE PROBLEM) -->
+    <section id="desafio" class="bg-brand-grayBg pb-20">
+        <!-- BANNER DE SECCIÓN DELGADO -->
+        <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
+            <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=1920" alt="Flujos de capital y banca" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-darkest/75"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs">Análisis de la Realidad</span>
+                <h2 class="font-title text-3xl md:text-4xl font-bold text-white mt-1">El Reto de Crecer con Sentido Humano</h2>
+            </div>
+        </div>
+
+        <!-- CONTENIDO DEL DESAFÍO -->
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <h3 class="font-title text-2xl font-bold text-brand-darkest mb-4 font-title">El dilema de la rentabilidad y el servicio</h3>
+                    <p class="text-slate-600 leading-relaxed font-light mb-6 text-lg">
+                        DaviPlata asumió la tarea de llevar servicios financieros a 26 millones de colombianos que estaban fuera del sistema. Al procesar millones de transacciones y subsidios públicos, el volumen creció muy rápido y surgieron tensiones.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed font-light mb-6">
+                        Para cubrir los altos costos de la plataforma, la dirección se vio presionada a buscar rentabilidad. Esto generó retos internos y externos: el peligro de descuidar el valor social por cumplir metas de ingresos, la distancia con los usuarios debido a intermediarios y el desgaste del equipo técnico.
+                    </p>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="bg-brand-dark text-white p-8 rounded-2xl shadow-lg border border-brand-mid relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-5">
+                            <i class="fa-solid fa-chart-line text-[10rem]"></i>
+                        </div>
+                        <h4 class="font-title font-bold text-lg text-brand-accent mb-4 border-b border-brand-mid/40 pb-2">Análisis de Situación</h4>
+                        <div class="space-y-4 text-xs font-light">
+                            <div>
+                                <strong class="text-white block font-semibold">Financiero:</strong>
+                                Equilibrar los costos de dispersar subsidios públicos con los ingresos que exige la empresa matriz.
+                            </div>
+                            <div>
+                                <strong class="text-white block font-semibold">Humano:</strong>
+                                La carga de trabajo del equipo técnico aumentó la rotación de los programadores.
+                            </div>
+                            <div>
+                                <strong class="text-white block font-semibold">Operativo:</strong>
+                                La atención de quejas se delegó a un tercero, alejando a la dirección de los problemas reales de los usuarios.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. DIAGNÓSTICO: LAS 4 PATOLOGÍAS CLÍNICAS -->
+    <section id="diagnostico" class="bg-white pb-20">
+        <!-- BANNER DE SECCIÓN DELGADO -->
+        <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1920" alt="Análisis de riesgos y diagnóstico" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-dark/75"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs">Evaluación de ARA</span>
+                <h2 class="font-title text-3xl md:text-4xl font-bold text-white mt-1">Problemas Identificados</h2>
+            </div>
+        </div>
+
+        <!-- CONTENIDO DEL DIAGNÓSTICO -->
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <p class="text-slate-500 font-light text-center max-w-2xl mx-auto mb-12">
+                Identificamos cuatro problemas de fondo en la organización, clasificados como enfermedades físicas y psicológicas.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Patología 1: Daltonismo Organizacional -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-redsoft text-brand-red px-3 py-1 rounded-full border border-brand-red/10">Enfermedad Psicológica</span>
+                            <span class="text-slate-400 text-xs font-mono">Patología 01</span>
+                        </div>
+                        <h3 class="font-title text-lg font-bold text-brand-darkest mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-eye-slash text-brand-red"></i> Enfoque solo en el dinero (Daltonismo)
+                        </h3>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-4">
+                            La presión por generar ingresos hacía que el equipo se concentrara en los números, perdiendo de vista la misión social de ayudar a las personas que ingresaban por primera vez al sistema financiero.
+                        </p>
+                    </div>
+                    <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/10 mt-4 text-xs">
+                        <span class="text-brand-dark font-semibold uppercase block mb-1">Tratamiento Estratégico:</span>
+                        <p class="text-slate-600">Evaluar las metas comerciales considerando también el beneficio social de los usuarios en cada región.</p>
+                    </div>
+                </div>
+
+                <!-- Patología 2: Miopía y Artrosis Estratégica -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-redsoft text-brand-red px-3 py-1 rounded-full border border-brand-red/10">Enfermedad Psicológica</span>
+                            <span class="text-slate-400 text-xs font-mono">Patología 02</span>
+                        </div>
+                        <h3 class="font-title text-lg font-bold text-brand-darkest mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-person-cane text-brand-red"></i> Falta de adaptación local (Miopía)
+                        </h3>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-4">
+                            Al expandirse a otros países, se intentó copiar el modelo tal cual, sin entender las leyes, las costumbres y la cultura de cada lugar, lo que restaba agilidad a la empresa.
+                        </p>
+                    </div>
+                    <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/10 mt-4 text-xs">
+                        <span class="text-brand-dark font-semibold uppercase block mb-1">Tratamiento Estratégico:</span>
+                        <p class="text-slate-600">Ajustar las estrategias, las metas y los procesos operativos a la realidad normativa de cada nuevo país.</p>
+                    </div>
+                </div>
+
+                <!-- Patología 3: Sordera Corporativa -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-redsoft text-brand-red px-3 py-1 rounded-full border border-brand-red/10">Enfermedad Física</span>
+                            <span class="text-slate-400 text-xs font-mono">Patología 03</span>
+                        </div>
+                        <h3 class="font-title text-lg font-bold text-brand-darkest mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-ear-deaf text-brand-red"></i> Dejar de escuchar (Sordera)
+                        </h3>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-4">
+                            Al dejar la atención de quejas y reclamos en manos de un tercero (SistemCobro), los directivos dejaron de escuchar los problemas reales del usuario del día a día, perdiendo empatía.
+                        </p>
+                    </div>
+                    <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/10 mt-4 text-xs">
+                        <span class="text-brand-dark font-semibold uppercase block mb-1">Tratamiento Estratégico:</span>
+                        <p class="text-slate-600">Hacer que los directivos escuchen periódicamente quejas reales para entender dónde falla el servicio y solucionarlo.</p>
+                    </div>
+                </div>
+
+                <!-- Patología 4: Esquizofrenia Organizativa -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-redsoft text-brand-red px-3 py-1 rounded-full border border-brand-red/10">Enfermedad Física</span>
+                            <span class="text-slate-400 text-xs font-mono">Patología 04</span>
+                        </div>
+                        <h3 class="font-title text-lg font-bold text-brand-darkest mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-brain text-brand-red"></i> Decir una cosa y hacer otra (Esquizofrenia)
+                        </h3>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-4">
+                            Había una contradicción entre el mensaje de ayuda social y cercanía que se proyectaba hacia afuera, y la presión laboral extrema que vivían los equipos de trabajo adentro.
+                        </p>
+                    </div>
+                    <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/10 mt-4 text-xs">
+                        <span class="text-brand-dark font-semibold uppercase block mb-1">Tratamiento Estratégico:</span>
+                        <p class="text-slate-600">Cuidar al personal de tecnología, mejorar sus condiciones de trabajo y alinear las promesas externas con la realidad del equipo.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PLAN DE ACCIÓN PASO A PASO -->
+    <section id="plan-accion" class="bg-brand-grayBg pb-20">
+        <!-- BANNER DE SECCIÓN DELGADO -->
+        <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
+            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=1920" alt="Ejecutivos trabajando en planes" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-darkest/75"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs">Ingeniería Corporativa</span>
+                <h2 class="font-title text-3xl md:text-4xl font-bold text-white mt-1">Plan de Acción Implementado</h2>
+            </div>
+        </div>
+
+        <!-- CONTENIDO DEL PLAN DE ACCIÓN -->
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Columna Izquierda: Los Pasos de la Solución -->
+                <div class="lg:col-span-7 space-y-8">
+                    <h3 class="font-title text-2xl font-bold text-brand-darkest">El camino de la transformación</h3>
+                    <div class="w-16 h-1 bg-brand-accent rounded-full"></div>
+                    
+                    <!-- Paso 1 -->
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0">1</div>
+                        <div>
+                            <h4 class="font-bold text-brand-darkest text-lg mb-2">Escuchar directamente al usuario</h4>
+                            <p class="text-sm text-slate-600 font-light leading-relaxed">
+                                Establecimos reuniones mensuales para que los directivos escuchen grabaciones reales de quejas. Esto ayuda a recuperar la empatía, entender las trabas que vive el usuario y corregir fallas en el servicio.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0">2</div>
+                        <div>
+                            <h4 class="font-bold text-brand-darkest text-lg mb-2">Medir el impacto social y económico</h4>
+                            <p class="text-sm text-slate-600 font-light leading-relaxed">
+                                Creamos un tablero de control con indicadores que miden tanto la rentabilidad de las transacciones como el beneficio real en las comunidades (educación financiera y reducción de pobreza).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0">3</div>
+                        <div>
+                            <h4 class="font-bold text-brand-darkest text-lg mb-2">Cuidar al equipo de trabajo</h4>
+                            <p class="text-sm text-slate-600 font-light leading-relaxed">
+                                Creamos la "Academia de Líderes DaviPlata" para ofrecer capacitación interna y rutas de crecimiento claras a los mandos medios y el equipo de tecnología, reduciendo la fuga de talento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Modelos de Intervención -->
+                <div class="lg:col-span-5 bg-white p-8 rounded-2xl border border-slate-200 card-shadow">
+                    <h4 class="font-title font-bold text-lg text-brand-darkest mb-6 border-b pb-2">Herramientas de Trabajo</h4>
+                    <div class="space-y-6">
+                        <div>
+                            <h5 class="font-bold text-brand-mid text-sm flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-hands-holding"></i> Escuchar la voluntad del equipo
+                            </h5>
+                            <p class="text-xs text-slate-500 font-light">
+                                Ubicar a los líderes y desarrolladores en los puestos donde mejor rinden y se sienten cómodos, evitando la presión excesiva.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-mid text-sm flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-arrows-to-dot"></i> Crear hábitos de coherencia
+                            </h5>
+                            <p class="text-xs text-slate-500 font-light">
+                                Lograr que el impacto social y los ingresos económicos se evalúen con el mismo nivel de importancia en las juntas directivas.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-mid text-sm flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-heart-pulse"></i> Cuidar el ánimo del equipo
+                            </h5>
+                            <p class="text-xs text-slate-500 font-light">
+                                Monitorear el estrés y el cansancio de los equipos técnicos para mantener un ambiente de trabajo saludable y creativo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. METODOLOGÍA DE SEGUIMIENTO -->
+    <section id="metodologia" class="bg-white pb-20">
+        <!-- BANNER DE SECCIÓN DELGADO -->
+        <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1920" alt="Auditoría y control" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-dark/75"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs">Monitoreo Constante</span>
+                <h2 class="font-title text-3xl md:text-4xl font-bold text-white mt-1">Tablero de Control</h2>
+            </div>
+        </div>
+
+        <!-- CONTENIDO DEL TABLERO -->
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <p class="text-slate-500 font-light text-center max-w-2xl mx-auto mb-12">
+                Para asegurar que estos cambios duren, implementamos un seguimiento basado en tres frentes:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                <div class="bg-brand-soft p-6 rounded-xl border border-brand-mid/10 card-shadow">
+                    <h4 class="font-bold text-brand-dark mb-2"><i class="fa-solid fa-clipboard-check mr-2 text-brand-accent"></i> Revisiones trimestrales</h4>
+                    <p class="text-xs text-slate-600 font-light">Evaluamos cada tres meses el clima de trabajo, la satisfacción del equipo y las ideas de innovación.</p>
+                </div>
+                <div class="bg-brand-soft p-6 rounded-xl border border-brand-mid/10 card-shadow">
+                    <h4 class="font-bold text-brand-dark mb-2"><i class="fa-solid fa-chart-simple mr-2 text-brand-accent"></i> Seguimiento diario</h4>
+                    <p class="text-xs text-slate-600 font-light">Monitoreamos el rendimiento de la plataforma, la estabilidad del sistema y los tiempos de respuesta ante fallas.</p>
+                </div>
+                <div class="bg-brand-soft p-6 rounded-xl border border-brand-mid/10 card-shadow">
+                    <h4 class="font-bold text-brand-dark mb-2"><i class="fa-solid fa-comments mr-2 text-brand-accent"></i> Feedback directo</h4>
+                    <p class="text-xs text-slate-600 font-light">Encuestas periódicas y confidenciales para conocer la opinión real de los empleados y de los usuarios del sistema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. RESULTADOS & RETORNO DE LA INVERSIÓN (ROI) -->
+    <section id="resultados" class="bg-brand-grayBg pb-20">
+        <!-- BANNER DE SECCIÓN DELGADO -->
+        <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1920" alt="Reunión directiva analizando resultados" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-darkest/75"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs">Métricas de Éxito</span>
+                <h2 class="font-title text-3xl md:text-4xl font-bold text-white mt-1">El Retorno de la Inversión</h2>
+            </div>
+        </div>
+
+        <!-- CONTENIDO DE RESULTADOS -->
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="bg-white border border-slate-200 rounded-2xl p-8 md:p-12 shadow-sm mb-12">
+                <h3 class="font-title text-xl font-bold text-brand-darkest text-center mb-8">Resultados tras 12 meses de trabajo</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-heart text-brand-mid"></i>
+                        </div>
+                        <h4 class="font-bold text-brand-darkest mb-2">Cultura</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light">El equipo de trabajo recuperó la confianza, mejoró el ambiente laboral y disminuyó la renuncia de programadores.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-handshake text-brand-mid"></i>
+                        </div>
+                        <h4 class="font-bold text-brand-darkest mb-2">Mercado</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light">Logramos retener y recuperar a los usuarios de base que se habían alejado debido a problemas de servicio o quejas no resueltas.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-laptop-code text-brand-mid"></i>
+                        </div>
+                        <h4 class="font-bold text-brand-darkest mb-2">Operación</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light">Disminuimos de forma notable las quejas gracias a que automatizamos los procesos y redujimos los errores manuales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CONCLUSIÓN DEL CONSULTOR (CIERRE DE AUTORIDAD) -->
+    <section class="bg-white pb-24 pt-10">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="bg-brand-soft p-10 md:p-12 rounded-2xl border border-brand-mid/10 relative overflow-hidden shadow-sm">
+                <div class="absolute top-0 right-0 w-3 h-full bg-brand-accent"></div>
+                <h3 class="font-title text-2xl font-bold text-brand-darkest mb-6">Conclusión del Caso</h3>
+                <p class="text-slate-700 italic border-l-4 border-brand-mid pl-6 text-lg leading-relaxed mb-8 font-light">
+                    "Los problemas en una organización son señales de que es momento de cambiar. No solo corregimos fallas; ayudamos a los equipos a prepararse para el futuro con un liderazgo más humano, ético y de servicio."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold">
+                        ARA
+                    </div>
+                    <div>
+                        <strong class="block text-brand-darkest text-sm font-semibold">Consultor Principal | ARA Consultora</strong>
+                        <span class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Gobernanza & Sostenibilidad Adaptativa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-darkest text-slate-400 py-10 px-6 border-t-4 border-brand-accent text-center text-xs">
+        <p class="mb-2 text-white">© 2026 ARA Consultora. Todos los derechos reservados.</p>
+        <p>Estrategia y marco de trabajo adaptados para la Alta Dirección del Grupo Empresarial Bolívar / Banco Davivienda S.A.</p>
+    </footer>
+
+</body>
+</html>
