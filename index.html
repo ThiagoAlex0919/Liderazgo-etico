@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARA Consultora | Estrategia y Liderazgo Ético</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            darkest: '#0a221a',  
+                            dark: '#1b4332',     
+                            mid: '#2d6a4f',      
+                            soft: '#f0fdf4',     
+                            accent: '#cba365',   
+                            light: '#ffffff',    
+                            gray: '#f8fafc'      
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .card-shadow {
+            box-shadow: 0 10px 40px -10px rgba(27, 67, 50, 0.08);
+            transition: all 0.3s ease;
+        }
+        .card-shadow:hover {
+            box-shadow: 0 20px 40px -10px rgba(27, 67, 50, 0.15);
+            transform: translateY(-3px);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #1b4332; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #cba365; }
+    </style>
+</head>
+<body class="bg-brand-light text-slate-700 font-sans antialiased overflow-x-hidden">
+
+    <!-- NAVBAR CLARO -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 rounded bg-brand-dark flex items-center justify-center text-white font-title font-bold text-xl relative overflow-hidden">
+                        ARA
+                    </div>
+                    <div>
+                        <span class="font-title font-bold text-brand-darkest tracking-widest text-lg leading-none block">ARA</span>
+                        <span class="text-[10px] text-brand-mid uppercase tracking-[0.2em] font-semibold">Consultora</span>
+                    </div>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">Inicio</a>
+                    <a href="#quienes-somos" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">La Firma</a>
+                    <a href="#servicios" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">Portafolio</a>
+                    
+                    <!-- Dropdown de Casos -->
+                    <div class="relative group">
+                        <button class="text-slate-600 group-hover:text-brand-mid text-sm font-medium transition-colors flex items-center gap-1 py-2 focus:outline-none">
+                            Casos <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <!-- Menú Dropdown -->
+                        <div class="absolute left-0 mt-1 w-64 rounded-xl bg-white border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-2">
+                            <a href="casos/novatextil.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-soft hover:text-brand-dark transition-colors font-medium">
+                                <i class="fa-solid fa-shirt mr-2 text-brand-accent"></i> Caso NovaTextil S.A.S.
+                            </a>
+                           
+                            <a href="casos/drucker.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-soft hover:text-brand-dark transition-colors font-medium">
+                                <i class="fa-solid fa-award mr-2 text-brand-accent"></i> Eficacia Directiva (Drucker)
+                            </a>
+                             <a href="casos/daviplata.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-soft hover:text-brand-dark transition-colors font-medium">
+                                <i class="fa-solid fa-wallet mr-2 text-brand-accent"></i> Caso DaviPlata S.A.
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#equipo" class="bg-brand-dark text-white hover:bg-brand-accent px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md">Equipo</a>
+                </div>
+
+                <!-- Botón Menú Mobile -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-accent p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Mobile Desplegable -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-b border-slate-200 shadow-lg absolute w-full z-50">
+            <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3">
+                <a href="#inicio" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">Inicio</a>
+                <a href="#quienes-somos" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">La Firma</a>
+                <a href="#servicios" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">Portafolio</a>
+                
+                <!-- Sección Casos Mobile Expandida -->
+                <div class="border-b border-slate-100 py-2">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest px-3 block mb-1">Casos de Éxito</span>
+                    <a href="casos-novatextil.html" class="block px-6 py-2 text-slate-600 hover:text-brand-dark font-medium text-sm">Caso NovaTextil S.A.S.</a>
+                    <a href="casos-daviplata.html" class="block px-6 py-2 text-slate-600 hover:text-brand-dark font-medium text-sm">Caso DaviPlata S.A.</a>
+                    <a href="recurso-drucker.html" class="block px-6 py-2 text-slate-600 hover:text-brand-dark font-medium text-sm">Eficacia Directiva (Drucker)</a>
+                </div>
+
+                <a href="#equipo" class="text-brand-dark font-bold block px-3 py-3 rounded-md text-base">Equipo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. SECCIÓN INICIO (HERO) -->
+    <section id="inicio" class="relative pt-20 lg:pt-0 min-h-[90vh] flex items-center bg-white">
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920" alt="Corporate Office" class="w-full h-full object-cover object-right">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex flex-col justify-center">
+            <div class="max-w-2xl lg:py-24">
+                <div class="inline-flex items-center gap-2 bg-brand-soft border border-brand-mid/20 px-4 py-1.5 rounded-full text-brand-dark text-xs font-bold tracking-widest uppercase mb-8">
+                    <i class="fa-solid fa-shield-halved text-brand-accent"></i> Alta Dirección
+                </div>
+                
+                <h1 class="font-title text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-darkest tracking-tight leading-tight mb-6">
+                    Liderazgo Ético como <br>
+                    <span class="text-brand-mid">Ventaja Competitiva</span>
+                </h1>
+                
+                <p class="text-lg text-slate-600 font-light mb-10 leading-relaxed">
+                    Consultoría estratégica para C-Suite. Transformamos la gobernanza, el control financiero y la sostenibilidad en activos tangibles para su organización.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                    <a href="#servicios" class="bg-brand-dark text-white px-8 py-4 rounded-full font-bold text-sm tracking-wider uppercase hover:bg-brand-mid transition-all shadow-lg text-center">
+                        Ver Soluciones
+                    </a>
+                </div>
+
+                <div class="border-l-4 border-brand-accent pl-6 py-2">
+                    <p class="font-title text-xl md:text-2xl font-semibold text-brand-dark italic leading-snug">
+                        "La ética no frena el éxito; es el único motor que resiste la volatilidad."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SECCIÓN LA FIRMA -->
+    <section id="quienes-somos" class="bg-brand-gray pb-24">
+        <div class="relative h-64 md:h-80 w-full overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1920" alt="Team Collaboration" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-darkest/80 mix-blend-multiply"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-sm drop-shadow-md">Estrategia Corporativa</span>
+                <h2 class="font-title text-4xl md:text-5xl font-bold text-white mt-2 drop-shadow-lg">La Firma</h2>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <h3 class="font-title text-3xl font-bold text-brand-darkest mb-4">Nuestro Enfoque</h3>
+                    <div class="w-16 h-1 bg-brand-accent mb-6 rounded-full"></div>
+                    <p class="text-slate-600 leading-relaxed font-light mb-6 text-lg">
+                        Diseñamos modelos de negocio transparentes y rentables. Asesoramos a organizaciones públicas, privadas y sociales para mitigar riesgos y maximizar el valor compartido.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-6 rounded-xl card-shadow text-center border border-slate-100">
+                        <i class="fa-solid fa-chart-pie text-2xl text-brand-mid mb-2"></i>
+                        <h4 class="font-bold text-brand-darkest">Valor Dual</h4>
+                        <p class="text-xs text-slate-500 mt-1">Impacto Social + ROI.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl card-shadow text-center border border-slate-100">
+                        <i class="fa-solid fa-shield-virus text-2xl text-brand-mid mb-2"></i>
+                        <h4 class="font-bold text-brand-darkest">Blindaje</h4>
+                        <p class="text-xs text-slate-500 mt-1">Prevención de crisis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-mid transition-colors">
+                    <div class="w-10 h-1 bg-brand-accent mb-6"></div>
+                    <span class="text-slate-400 font-bold tracking-widest uppercase text-xs">Misión</span>
+                    <h3 class="font-title text-2xl font-bold text-brand-darkest mt-2 mb-4">Transformación Rentable</h3>
+                    <p class="text-slate-600 font-light leading-relaxed">
+                        Integrar liderazgo ético, transparencia y sostenibilidad en la estrategia central de las empresas, garantizando resiliencia y crecimiento sostenido en mercados complejos.
+                    </p>
+                </div>
+
+                <div class="bg-brand-dark p-10 rounded-2xl shadow-lg">
+                    <div class="w-10 h-1 bg-brand-accent mb-6"></div>
+                    <span class="text-brand-accent font-bold tracking-widest uppercase text-xs">Visión 2035</span>
+                    <h3 class="font-title text-2xl font-bold text-white mt-2 mb-4">Referentes en LATAM</h3>
+                    <p class="text-slate-200 font-light leading-relaxed">
+                        Ser la firma consultora líder en América Latina en la conversión de la gobernanza corporativa y los marcos ESG en la principal ventaja financiera del mercado.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Valores Gerenciales -->
+            <div>
+                <h3 class="font-title text-2xl font-bold text-brand-darkest mb-8 text-center">Nuestros Pilares</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white border-l-4 border-brand-mid p-5 rounded card-shadow">
+                        <h4 class="font-bold text-sm text-brand-darkest">Transparencia</h4>
+                        <p class="text-xs text-slate-500 mt-1">Auditoría y procesos claros.</p>
+                    </div>
+                    <div class="bg-white border-l-4 border-brand-mid p-5 rounded card-shadow">
+                        <h4 class="font-bold text-sm text-brand-darkest">Integridad</h4>
+                        <p class="text-xs text-slate-500 mt-1">Ética bajo presión financiera.</p>
+                    </div>
+                    <div class="bg-white border-l-4 border-brand-mid p-5 rounded card-shadow">
+                        <h4 class="font-bold text-sm text-brand-darkest">Innovación</h4>
+                        <p class="text-xs text-slate-500 mt-1">Tecnología para la inclusión.</p>
+                    </div>
+                    <div class="bg-white border-l-4 border-brand-mid p-5 rounded card-shadow">
+                        <h4 class="font-bold text-sm text-brand-darkest">Sostenibilidad</h4>
+                        <p class="text-xs text-slate-500 mt-1">Impacto neto positivo.</p>
+                    </div>
+                    <div class="bg-white border-l-4 border-brand-accent p-5 rounded card-shadow md:col-span-2">
+                        <h4 class="font-bold text-sm text-brand-darkest">Confidencialidad</h4>
+                        <p class="text-xs text-slate-500 mt-1">Protección absoluta de datos corporativos.</p>
+                    </div>
+                    <div class="bg-white border-l-4 border-brand-mid p-5 rounded card-shadow">
+                        <h4 class="font-bold text-sm text-brand-darkest">Talento</h4>
+                        <p class="text-xs text-slate-500 mt-1">Las personas como centro.</p>
+                    </div>
+                    <div class="bg-white border-l-4 border-brand-mid p-5 rounded card-shadow">
+                        <h4 class="font-bold text-sm text-brand-darkest">Excelencia</h4>
+                        <p class="text-xs text-slate-500 mt-1">Rigor técnico global.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN PORTAFOLIO -->
+    <section id="servicios" class="bg-white pb-24">
+        <div class="relative h-64 md:h-80 w-full overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" alt="Corporate Building" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-dark/80"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-sm drop-shadow-md">Soluciones Consultivas</span>
+                <h2 class="font-title text-4xl md:text-5xl font-bold text-white mt-2 drop-shadow-lg">Portafolio</h2>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+            
+            <div class="bg-brand-gray border border-slate-200 rounded-2xl p-8 mb-16 shadow-sm">
+                <h3 class="font-title text-xl font-bold text-brand-darkest text-center mb-6">Metodología de Ejecución</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-300">
+                    <div class="pt-2 md:pt-0">
+                        <h4 class="text-brand-accent font-bold mb-1 text-sm">QUÉ</h4>
+                        <p class="text-xs text-slate-600">Diagnóstico e implementación de la solución técnica.</p>
+                    </div>
+                    <div class="pt-4 md:pt-0">
+                        <h4 class="text-brand-accent font-bold mb-1 text-sm">CÓMO</h4>
+                        <p class="text-xs text-slate-600">Ingeniería de procesos, controles y auditorías.</p>
+                    </div>
+                    <div class="pt-4 md:pt-0">
+                        <h4 class="text-brand-accent font-bold mb-1 text-sm">POR QUÉ</h4>
+                        <p class="text-xs text-slate-600">ROI, mitigación de riesgos y legitimidad de mercado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                
+                <!-- Servicio 1 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow grid grid-cols-1 md:grid-cols-3 gap-6 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-brand-dark"></div>
+                    <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-slate-200 pb-4 md:pb-0 md:pr-6">
+                        <i class="fa-solid fa-gavel text-2xl text-brand-mid mb-3"></i>
+                        <h3 class="font-title text-lg font-bold text-brand-darkest leading-tight">Gobierno Corporativo<br>& Control Ético</h3>
+                    </div>
+                    <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                        <div>
+                            <strong class="text-brand-dark block mb-1">Acción:</strong>
+                            <p class="text-slate-600 font-light">Estructuración de juntas, comités de ética y flujos de decisión sin sesgos.</p>
+                        </div>
+                        <div>
+                            <strong class="text-brand-dark block mb-1">Retorno:</strong>
+                            <p class="text-slate-600 font-light italic">"Un gobierno sin control es un pasivo. Estructurarlo atrae capital y asegura cumplimiento."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow grid grid-cols-1 md:grid-cols-3 gap-6 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-brand-mid"></div>
+                    <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-slate-200 pb-4 md:pb-0 md:pr-6">
+                        <i class="fa-solid fa-chart-line text-2xl text-brand-mid mb-3"></i>
+                        <h3 class="font-title text-lg font-bold text-brand-darkest leading-tight">Valor Compartido<br>& ESG</h3>
+                    </div>
+                    <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                        <div>
+                            <strong class="text-brand-dark block mb-1">Acción:</strong>
+                            <p class="text-slate-600 font-light">Integración de estándares ESG al core del negocio y medición de ROI social.</p>
+                        </div>
+                        <div>
+                            <strong class="text-brand-dark block mb-1">Retorno:</strong>
+                            <p class="text-slate-600 font-light italic">"La rentabilidad que daña el entorno expira. Maximizamos utilidades generando impacto."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow grid grid-cols-1 md:grid-cols-3 gap-6 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-brand-accent"></div>
+                    <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-slate-200 pb-4 md:pb-0 md:pr-6">
+                        <i class="fa-solid fa-shield-halved text-2xl text-brand-mid mb-3"></i>
+                        <h3 class="font-title text-lg font-bold text-brand-darkest leading-tight">Gestión de Crisis<br>& Reputación</h3>
+                    </div>
+                    <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                        <div>
+                            <strong class="text-brand-dark block mb-1">Acción:</strong>
+                            <p class="text-slate-600 font-light">Mapas de riesgo preventivos y manuales de respuesta inmediata para C-Suite.</p>
+                        </div>
+                        <div>
+                            <strong class="text-brand-dark block mb-1">Retorno:</strong>
+                            <p class="text-slate-600 font-light italic">"La reputación toma décadas; las crisis, segundos. Blindamos la licencia para operar."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow grid grid-cols-1 md:grid-cols-3 gap-6 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-slate-800"></div>
+                    <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-slate-200 pb-4 md:pb-0 md:pr-6">
+                        <i class="fa-solid fa-users-viewfinder text-2xl text-brand-mid mb-3"></i>
+                        <h3 class="font-title text-lg font-bold text-brand-darkest leading-tight">Transformación<br>Cultural</h3>
+                    </div>
+                    <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                        <div>
+                            <strong class="text-brand-dark block mb-1">Acción:</strong>
+                            <p class="text-slate-600 font-light">Laboratorios de dilemas éticos y medición de clima para directivos.</p>
+                        </div>
+                        <div>
+                            <strong class="text-brand-dark block mb-1">Retorno:</strong>
+                            <p class="text-slate-600 font-light italic">"Sin integridad en la ejecución, toda estrategia falla. Alineamos el talento al objetivo."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN EQUIPO DE TRABAJO (TEAM WORK) -->
+    <section id="equipo" class="bg-brand-gray pb-24">
+        <!-- BANNER DE SECCIÓN DELGADO -->
+        <div class="relative h-64 md:h-80 w-full overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1920" alt="Executive Meeting ARA Team" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-darkest/80 mix-blend-multiply"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-sm drop-shadow-md">Nuestra Mayor Fortaleza</span>
+                <h2 class="font-title text-4xl md:text-5xl font-bold text-white mt-2 drop-shadow-lg">Equipo de Trabajo</h2>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h3 class="font-title text-3xl font-bold text-brand-darkest">Consultores y Especialistas de Élite</h3>
+                <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 font-light mt-4">
+                    Especialistas multidisciplinares de amplia trayectoria orientados a estructurar un sistema inmunológico organizacional blindado contra la volatilidad ética y de mercado.
+                </p>
+            </div>
+
+            <!-- Grid de Tarjetas de Perfiles del Equipo -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Perfil 1: Allison Bastidas -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="h-80 w-full overflow-hidden relative">
+                            <img src="assets/image-1.png" alt="Allison Bastidas - Directora de Control Ético" class="w-full h-full object-cover object-top">
+                            <div class="absolute bottom-4 left-4 bg-brand-dark/90 backdrop-blur-md border border-brand-accent/40 text-brand-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                                Auditoría y Control
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h4 class="font-title text-2xl font-bold text-brand-darkest mb-1">Allison Bastidas</h4>
+                            <span class="text-brand-mid font-semibold text-sm block mb-4">Directora de Control Ético y Transparencia Financiera</span>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Profesional en contaduría con enfoque en integridad financiera, transparencia corporativa y sostenibilidad empresarial. Especializada en fortalecer prácticas de control interno, cumplimiento y gestión ética dentro de las organizaciones.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-2">
+                        <div class="border-t border-slate-100 pt-4 flex gap-3 text-slate-400 text-xs">
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-brands fa-linkedin text-base"></i></span>
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-solid fa-envelope text-base"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil 2: David Gómez -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="h-80 w-full overflow-hidden relative">
+                            <img src="assets/image-4.png" alt="David Gómez - Director de Comunicación" class="w-full h-full object-cover object-top">
+                            <div class="absolute bottom-4 left-4 bg-brand-dark/90 backdrop-blur-md border border-brand-accent/40 text-brand-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                                Cultura Visual
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h4 class="font-title text-2xl font-bold text-brand-darkest mb-1">David Gómez</h4>
+                            <span class="text-brand-mid font-semibold text-sm block mb-4">Director de Comunicación y Cultura Visual</span>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Profesional creativo enfocado en comunicación visual estratégica y construcción de marcas con propósito. Especializado en transformar conceptos organizacionales y culturales en experiencias visuales claras, humanas e impactantes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-2">
+                        <div class="border-t border-slate-100 pt-4 flex gap-3 text-slate-400 text-xs">
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-brands fa-linkedin text-base"></i></span>
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-solid fa-envelope text-base"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil 3: Angie Gonzalez -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="h-80 w-full overflow-hidden relative">
+                            <img src="assets/image-2.png" alt="Angie Gonzalez - Directora de Estrategia" class="w-full h-full object-cover object-top">
+                            <div class="absolute bottom-4 left-4 bg-brand-dark/90 backdrop-blur-md border border-brand-accent/40 text-brand-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                                Estrategia & Dirección
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h4 class="font-title text-2xl font-bold text-brand-darkest mb-1">Angie Gonzalez</h4>
+                            <span class="text-brand-mid font-semibold text-sm block mb-4">Directora de Estrategia Organizacional</span>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Administradora de empresas con experiencia en planeación estratégica, liderazgo organizacional y transformación empresarial. Enfocada en desarrollar modelos de gestión sostenibles, eficientes y alineados con principios éticos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-2">
+                        <div class="border-t border-slate-100 pt-4 flex gap-3 text-slate-400 text-xs">
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-brands fa-linkedin text-base"></i></span>
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-solid fa-envelope text-base"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil 4: Alexander Romero -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="h-80 w-full overflow-hidden relative">
+                            <img src="assets/image-3.png" alt="Alexander Romero - Líder de Innovación y Ética Digital" class="w-full h-full object-cover object-top">
+                            <div class="absolute bottom-4 left-4 bg-brand-dark/90 backdrop-blur-md border border-brand-accent/40 text-brand-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                                Innovación & UX
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h4 class="font-title text-2xl font-bold text-brand-darkest mb-1">Alexander Romero</h4>
+                            <span class="text-brand-mid font-semibold text-sm block mb-4">Líder de Experiencia, Innovación y Ética Digital</span>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Diseñador UX especializado en experiencia de usuario, innovación y transformación digital centrada en las personas. Orientado a crear soluciones éticas, humanas y estratégicas mediante metodologías de investigación, diseño e inteligencia artificial aplicada.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-2">
+                        <div class="border-t border-slate-100 pt-4 flex gap-3 text-slate-400 text-xs">
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-brands fa-linkedin text-base"></i></span>
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-solid fa-envelope text-base"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil 5: JCV -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between md:col-span-2 lg:col-span-1">
+                    <div>
+                        <div class="h-80 w-full overflow-hidden relative">
+                            <img src="assets/image-5.png" alt="JCV - Directora de Sostenibilidad" class="w-full h-full object-cover object-top">
+                            <div class="absolute bottom-4 left-4 bg-brand-dark/90 backdrop-blur-md border border-brand-accent/40 text-brand-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                                Finanzas Sostenibles
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h4 class="font-title text-2xl font-bold text-brand-darkest mb-1">JCV</h4>
+                            <span class="text-brand-mid font-semibold text-sm block mb-4">Directora de Sostenibilidad y Planeación Financiera</span>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Profesional en administración financiera enfocada en sostenibilidad económica, análisis estratégico y gestión financiera empresarial. Especializada en diseñar modelos financieros responsables y sostenibles para el crecimiento organizacional.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-2">
+                        <div class="border-t border-slate-100 pt-4 flex gap-3 text-slate-400 text-xs">
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-brands fa-linkedin text-base"></i></span>
+                            <span class="hover:text-brand-dark cursor-pointer"><i class="fa-solid fa-envelope text-base"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CLARO / PRESTIGIO -->
+    <footer class="bg-brand-darkest py-12 border-t-4 border-brand-accent">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-400 font-light">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-brand-dark flex items-center justify-center text-white font-title font-bold text-sm">
+                    ARA
+                </div>
+                <div>
+                    <span class="font-title font-bold text-white tracking-widest text-sm block">ARA</span>
+                    <span class="text-[9px] text-brand-mint/70 uppercase tracking-[0.2em] font-semibold block -mt-1">Consultora</span>
+                </div>
+            </div>
+            
+            <!-- Canales Directos de Comunicación -->
+            <div class="flex flex-col md:flex-row gap-6 text-center md:text-left">
+                <span class="text-slate-200"><i class="fa-solid fa-envelope text-brand-accent mr-1.5"></i> estrategia@araconsultora.com</span>
+                <span class="text-slate-200"><i class="fa-solid fa-location-dot text-brand-accent mr-1.5"></i> Operación Global (LATAM)</span>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white transition-colors">Términos Legales</a>
+                <a href="#" class="hover:text-white transition-colors">Aviso de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para Interactividad -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('bg-white/95', 'bg-white');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('bg-white', 'bg-white/95');
+            }
+        });
+    </script>
+</body>
+</html>

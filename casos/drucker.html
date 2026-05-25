@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Eficacia Ejecutiva: Peter Drucker | ARA Consultora</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Iconografía Premium -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: { 
+                extend: { 
+                    colors: { 
+                        brand: { 
+                            darkest: '#0a221a', /* Verde bosque profundo ARA */
+                            dark: '#1b4332',    /* Verde corporativo principal ARA */
+                            mid: '#2d6a4f',     /* Verde de realce */
+                            soft: '#f0fdf4',    /* Fondo sutil verde */
+                            accent: '#cba365',  /* Dorado de prestigio ARA */
+                            accentLight: '#fdfbf7', /* Fondo crema premium */
+                            grayBg: '#f8fafc'   /* Gris limpio de contraste */
+                        } 
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif']
+                    }
+                } 
+            }
+        }
+    </script>
+    <style>
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(27, 67, 50, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-700 font-sans antialiased overflow-x-hidden">
+
+    <!-- 1. BARRA DE NAVEGACIÓN (Estilo Claro ARA) -->
+    <nav class="bg-white border-b border-slate-100 py-4 px-6 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="text-brand-dark hover:text-brand-mid font-bold flex items-center gap-2 transition-colors">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="font-title text-sm uppercase tracking-wider">Volver a Inicio</span>
+            </a>
+            <span class="text-[10px] uppercase tracking-widest font-extrabold text-brand-accent bg-brand-soft px-3 py-1.5 rounded-full border border-brand-accent/20">
+                ARA Leadership Toolkit
+            </span>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION (Encabezado Ejecutivo NovaTextil Style) -->
+    <header class="relative min-h-[65vh] flex items-center bg-brand-darkest overflow-hidden">
+        <!-- Imagen de fondo de alta calidad (C-Suite / Toma de Decisiones) con superposición premium -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1920" alt="Ejecutivo enfocado y eficaz" class="w-full h-full object-cover object-center opacity-30">
+            <!-- Degradado corporativo de verde oscuro a transparente -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-darkest via-brand-darkest/95 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 w-full py-16">
+            <div class="max-w-3xl">
+                <!-- Distintivo de categoría -->
+                <div class="inline-flex items-center gap-2 bg-brand-dark border border-brand-accent/30 px-4 py-1.5 rounded-full text-brand-accent text-xs font-bold tracking-widest uppercase mb-6">
+                    <i class="fa-solid fa-gem"></i> MARCO DE GESTIÓN DIRECTIVA
+                </div>
+                
+                <h1 class="font-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                    Qué Hace Eficaz a <br>
+                    <span class="text-brand-accent">Un Ejecutivo</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-300 font-light mb-8 leading-relaxed max-w-2xl">
+                    Inspirado en Peter F. Drucker. El conocimiento es inútil hasta que se traduce en hechos concretos, éticos y orientados a resultados.
+                </p>
+
+                <!-- KPIs / Burbujas de Alto Impacto basadas en Drucker -->
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 text-center min-w-[150px]">
+                        <span class="block text-2xl font-bold text-brand-accent">1/3</span>
+                        <span class="text-[9px] uppercase font-bold text-slate-300 tracking-wider">Éxito en Asignación de Personal</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 text-center min-w-[150px]">
+                        <span class="block text-2xl font-bold text-brand-accent">Pág. 1</span>
+                        <span class="text-[9px] uppercase font-bold text-slate-300 tracking-wider">Reservada a Oportunidades</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 text-center min-w-[150px]">
+                        <span class="block text-2xl font-bold text-brand-accent">1 Pregunta</span>
+                        <span class="text-[9px] uppercase font-bold text-slate-300 tracking-wider">"¿Qué hay que hacer?"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. EL DESAFÍO DIRECTIVO (Análisis de la Realidad Ejecutiva) -->
+    <section class="bg-brand-grayBg py-20 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7">
+                    <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs block mb-2">La Premisa Fundamental</span>
+                    <h2 class="font-title text-3xl md:text-4xl font-bold text-brand-darkest mb-6">El Conocimiento No Es Suficiente</h2>
+                    <div class="w-16 h-1 bg-brand-accent mb-6 rounded-full"></div>
+                    <p class="text-slate-600 leading-relaxed font-light mb-6 text-lg">
+                        Muchos líderes altamente inteligentes y capacitados fracasan en la dirección corporativa porque asumen que el conocimiento teórico por sí mismo genera valor. La realidad que define Peter F. Drucker es contundente: <strong class="text-brand-dark font-medium">el conocimiento es estéril hasta que se traduce en un plan de acción concreto y ético.</strong>
+                    </p>
+                    <p class="text-slate-600 leading-relaxed font-light">
+                        Para ser eficaz, un ejecutivo debe estructurar sus prioridades estratégicas, asumir su responsabilidad por encima de los intereses propios y de terceros, y adoptar la transparencia radical en la toma de decisiones.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <!-- Caja de síntesis visual -->
+                    <div class="bg-brand-dark text-white p-8 rounded-2xl shadow-xl border border-brand-mid relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-5">
+                            <i class="fa-solid fa-brain text-[12rem]"></i>
+                        </div>
+                        <h4 class="font-title font-bold text-lg text-brand-accent mb-4 border-b border-brand-mid/40 pb-2">
+                            <i class="fa-solid fa-circle-check mr-2"></i> El Decálogo de la Eficacia
+                        </h4>
+                        <p class="text-xs text-slate-300 font-light mb-4 leading-relaxed">
+                            Los ejecutivos sobresalientes no nacen eficaces; siguen sistemáticamente un conjunto de hábitos que protegen la claridad y potencian el crecimiento.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-200 font-light">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent"></i> Planificación con flexibilidad metodológica</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent"></i> Asignación de responsabilidades claras</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent"></i> Evaluaciones con criterio ético riguroso</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent"></i> Reconocimiento de debilidades y delegación</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PILARES PARA ACCIÓN FLEXIBLE Y CONTROL INTEGRAL (Cards estilo NovaTextil) -->
+    <section class="bg-white py-20">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs">Hábitos de Liderazgo</span>
+                <h2 class="font-title text-3xl md:text-4xl font-bold text-brand-darkest mt-2">La Práctica de la Eficacia Directiva</h2>
+                <p class="text-slate-500 font-light mt-4 text-sm md:text-base">
+                    Cómo estructurar decisiones libres de sesgos corporativos, con controles de revisión que anticipen los cambios bruscos del entorno mercantil.
+                </p>
+            </div>
+
+            <!-- Grid de Tarjetas de Patologías / Soluciones Directas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Pilar 1 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-brand-soft rounded-lg flex items-center justify-center mb-5 border border-brand-mid/10">
+                            <i class="fa-solid fa-arrows-spin text-brand-dark"></i>
+                        </div>
+                        <h3 class="font-title text-base font-bold text-brand-darkest mb-3">Planificar con Flexibilidad</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light">
+                            <strong>No crees camisas de fuerza:</strong> Antes de actuar, define resultados esperados, límites éticos/legales infranqueables y controles de revisión constante. Tu plan debe mutar dinámicamente según el entorno.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 text-[10px] text-brand-mid uppercase font-bold tracking-wider">
+                        <i class="fa-solid fa-shield mr-1"></i> Límites de control ético
+                    </div>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-brand-soft rounded-lg flex items-center justify-center mb-5 border border-brand-mid/10">
+                            <i class="fa-solid fa-user-check text-brand-dark"></i>
+                        </div>
+                        <h3 class="font-title text-base font-bold text-brand-darkest mb-3">Responsabilidades Claras</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light">
+                            Una decisión empresarial no es real hasta que defines: quién es el responsable, el plazo de ejecución, a quiénes afecta de manera colateral y quién debe ser debidamente informado del avance.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 text-[10px] text-brand-mid uppercase font-bold tracking-wider">
+                        <i class="fa-solid fa-hourglass mr-1"></i> Parámetros de asignación
+                    </div>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-brand-soft rounded-lg flex items-center justify-center mb-5 border border-brand-mid/10">
+                            <i class="fa-solid fa-scale-balanced text-brand-dark"></i>
+                        </div>
+                        <h3 class="font-title text-base font-bold text-brand-darkest mb-3">Evaluación Ética</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light">
+                            Evalúa tus decisiones sistemáticamente, contrastando los resultados empíricos con las expectativas. Si la ejecución falla, asume el error corporativo de asignación en lugar de culpar al empleado.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 text-[10px] text-brand-mid uppercase font-bold tracking-wider">
+                        <i class="fa-solid fa-gavel mr-1"></i> Asunción de la responsabilidad
+                    </div>
+                </div>
+
+                <!-- Pilar 4 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-brand-soft rounded-lg flex items-center justify-center mb-5 border border-brand-mid/10">
+                            <i class="fa-solid fa-people-group text-brand-dark"></i>
+                        </div>
+                        <h3 class="font-title text-base font-bold text-brand-darkest mb-3">Reconocer Debilidades</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light">
+                            La autoevaluación le mostrará sus sesgos personales y debilidades. Los líderes inteligentes no operan en áreas donde carecen de competencia; simplemente delegan el control en expertos técnicos.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 text-[10px] text-brand-mid uppercase font-bold tracking-wider">
+                        <i class="fa-solid fa-handshake mr-1"></i> Delegación experta
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. REVOLUCIONES METODOLÓGICAS (Priorización y Decisiones de Personal con Banner Intermedio Delgado) -->
+    <section class="bg-brand-grayBg pb-20">
+        
+        <!-- BANNER DE SECCIÓN DELGADO ESTILO NOVATEXTIL -->
+        <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1920" alt="Decisiones y Estrategia" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-darkest/80"></div>
+            <div class="relative z-10 text-center px-6">
+                <span class="text-brand-accent font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs">Revoluciones Metodológicas ARA</span>
+                <h2 class="font-title text-2xl md:text-4xl font-bold text-white mt-1">Cómo Ejecutar Prioridades Sin Desvíos</h2>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Intervención 1: Inversión de Informes -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-8 h-8 rounded-full bg-brand-soft border border-brand-mid/10 flex items-center justify-center text-brand-dark font-bold text-xs">1</span>
+                            <h3 class="font-title text-lg font-bold text-brand-darkest">Invertir los Informes para Priorizar Oportunidades</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">
+                            Drucker propone una disrupción de control administrativo radical: <strong class="text-brand-dark font-medium">la primera página del informe mensual de dirección debe contener exclusivamente la lista de oportunidades de negocio.</strong> 
+                        </p>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">
+                            Los problemas deben trasladarse a la segunda página, puesto que resolver problemas solo previene daños corporativos y apaga incendios del día a día, pero jamás produce resultados reales ni crecimiento de mercado.
+                        </p>
+                    </div>
+                    <div class="bg-brand-accentLight p-4 rounded-xl border border-brand-accent/20 text-xs">
+                        <span class="text-brand-dark font-semibold uppercase block mb-1">Impacto Organizacional:</span>
+                        <p class="text-slate-600">Asegura que los ejecutivos asignen su mejor talento interno a explorar innovaciones estratégicas y no a labores reactivas.</p>
+                    </div>
+                </div>
+
+                <!-- Intervención 2: Revisiones de Personal -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-8 h-8 rounded-full bg-brand-soft border border-brand-mid/10 flex items-center justify-center text-brand-dark font-bold text-xs">2</span>
+                            <h3 class="font-title text-lg font-bold text-brand-darkest">Revisiones Sistemáticas de Personal Clave</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">
+                            Las decisiones sobre personas definen la salud de una empresa. Por ello, es mandatorio instituir una revisión periódica (entre seis a nueve meses después) de cada nombramiento clave frente a los resultados obtenidos.
+                        </p>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">
+                            Los estudios empíricos revelan que <strong class="text-brand-dark font-medium">únicamente un tercio de las decisiones sobre personas resultan verdaderamente exitosas</strong>. La revisión frena a tiempo el daño derivado del favoritismo y los sesgos.
+                        </p>
+                    </div>
+                    <div class="bg-brand-accentLight p-4 rounded-xl border border-brand-accent/20 text-xs">
+                        <span class="text-brand-dark font-semibold uppercase block mb-1">Gobernanza Ética:</span>
+                        <p class="text-slate-600">Frente al fallo de desempeño de un colaborador, el líder asume su error propio de asignación en lugar de culpar al empleado.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. EL CORE PREGUNTAS Y ACCIÓN ESTRATÉGICA (Tablero de Control Basado en Drucker) -->
+    <section class="bg-white py-20">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="bg-brand-darkest text-white rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-24 -top-24 w-80 h-80 bg-brand-mid/10 rounded-full blur-3xl"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-7">
+                        <span class="text-brand-accent font-extrabold tracking-widest text-xs uppercase block mb-2">La Regla Madre de Drucker</span>
+                        <h3 class="font-title text-2xl md:text-3xl font-bold mb-6">La Pregunta Clave: <br><span class="text-brand-accent">"¿Qué hay que hacer?"</span></h3>
+                        <p class="text-slate-300 font-light text-sm md:text-base leading-relaxed mb-6">
+                            Preguntar qué hay que hacer es fundamental para el éxito gerencial. Sin esta pregunta, incluso el líder más talentoso e inteligente se vuelve inútil para los fines colectivos de la organización.
+                        </p>
+                        <p class="text-slate-300 font-light text-sm md:text-base leading-relaxed">
+                            Esto exige identificar las prioridades estratégicas, elevar la mirada más allá de los intereses individuales de empleados, jefes o accionistas, y comprender que la autoridad directiva solo es real si se apoya en la confianza del equipo.
+                        </p>
+                    </div>
+                    
+                    <div class="lg:col-span-5 bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                        <h4 class="font-bold text-brand-accent text-sm uppercase tracking-wider mb-4">El Enfoque del Líder Eficaz</h4>
+                        <div class="space-y-4 text-xs">
+                            <div class="flex gap-3">
+                                <div class="text-brand-accent font-bold">A.</div>
+                                <p class="text-slate-200">Definir prioridades con enfoque absoluto: no intentar abarcar múltiples frentes a la vez.</p>
+                            </div>
+                            <div class="flex gap-3 border-t border-white/10 pt-3">
+                                <div class="text-brand-accent font-bold">B.</div>
+                                <p class="text-slate-200">Tomar decisiones alineadas con la ética integral y la misión del Grupo Empresarial.</p>
+                            </div>
+                            <div class="flex gap-3 border-t border-white/10 pt-3">
+                                <div class="text-brand-accent font-bold">C.</div>
+                                <p class="text-slate-200">Traducir de inmediato las discusiones de planeación en acciones medibles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CONCLUSIÓN DEL CONSULTOR (Cierre de Autoridad NovaTextil Style) -->
+    <section class="bg-brand-grayBg py-24 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs block mb-4">Filosofía ARA Consultora</span>
+            
+            <p class="text-brand-darkest italic text-xl md:text-2xl font-light leading-relaxed mb-8">
+                "Las grandes organizaciones no se destruyen por falta de talento, sino por falta de claridad. Haz que la información fluya, dale la primera página al crecimiento y recuerda que tu autoridad solo es real si se apoya en la confianza y el desarrollo de tu equipo."
+            </p>
+
+            <div class="inline-flex items-center gap-4 text-left">
+                <div class="w-12 h-12 bg-brand-dark text-brand-accent rounded-full flex items-center justify-center font-bold text-sm shadow-sm">
+                    ARA
+                </div>
+                <div>
+                    <span class="block text-brand-darkest font-semibold text-sm">Perspectiva Estratégica</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Gobernanza Ética y Eficacia Corporativa</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CALL TO ACTION (CTA) -->
+    <section class="bg-white py-24">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="bg-brand-dark text-white p-10 md:p-14 rounded-3xl text-center shadow-xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-brand-mid/10 via-transparent to-transparent"></div>
+                
+                <h3 class="font-title text-2xl md:text-3xl font-bold mb-4 relative z-10">¿Tus ejecutivos lideran con verdadera eficacia y ética?</h3>
+                <p class="mb-8 opacity-80 max-w-2xl mx-auto font-light text-sm md:text-base relative z-10">
+                    Evite el estancamiento corporativo y los sesgos en la toma de decisiones críticas. Permítanos auditar la gobernanza interna de su equipo directivo.
+                </p>
+                <div class="relative z-10">
+                    <a href="index.html#contacto" class="bg-brand-accent hover:bg-white text-brand-darkest px-10 py-4 rounded-full font-bold transition duration-300 shadow-lg inline-block text-sm uppercase tracking-wider">
+                        Solicitar Diagnóstico Ejecutivo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CLARO / PRESTIGIO -->
+    <footer class="bg-brand-darkest text-slate-400 py-12 px-6 border-t-4 border-brand-accent text-center text-xs">
+        <p class="mb-2 text-white">© 2026 ARA Consultora. Todos los derechos reservados.</p>
+        <p class="max-w-xl mx-auto">Estrategia, cultura íntegra y optimización de hábitos para la Alta Dirección. Basado en los principios universales de Peter F. Drucker sobre efectividad gerencial.</p>
+    </footer>
+
+</body>
+</html>
