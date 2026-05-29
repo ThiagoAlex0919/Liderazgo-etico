@@ -43,10 +43,6 @@
             box-shadow: 0 20px 40px -10px rgba(17, 53, 39, 0.2);
             transform: translateY(-3px);
         }
-        /* Custom styles for accessibility and transition */
-        .modal-active {
-            overflow: hidden;
-        }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased overflow-x-hidden">
@@ -54,18 +50,18 @@
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="bg-white border-b border-slate-200 py-4 px-6 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="../index.html" class="text-brand-dark hover:text-brand-mid font-bold flex items-center gap-2 transition-colors text-base">
+            <a href="../index.html" class="text-brand-dark hover:text-brand-mid font-bold flex items-center gap-2 transition-colors">
                 <i class="fa-solid fa-arrow-left"></i>
-                <span class="font-title uppercase tracking-wider">Volver al Inicio</span>
+                <span class="text-sm font-title uppercase tracking-wider">Volver al Inicio</span>
             </a>
-            <span class="text-xs uppercase tracking-widest font-extrabold text-brand-dark bg-brand-soft px-3 py-1 rounded-full border border-brand-mid/20">
+            <span class="text-xs uppercase tracking-widest font-extrabold text-brand-dark bg-brand-soft px-3 py-1 rounded-full">
                 Caso de Estudio: Alquería
             </span>
         </div>
     </nav>
 
     <!-- 1. HERO SECTION -->
-    <header class="relative min-h-[75vh] flex items-center bg-white border-b border-slate-100">
+    <header class="relative min-h-[70vh] flex items-center bg-white border-b border-slate-100">
         <!-- Imagen de fondo Hero (Desarrollo en el campo colombiano) -->
         <div class="absolute inset-0 w-full h-full z-0">
             <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1920" alt="Campo colombiano y producción lechera" class="w-full h-full object-cover object-center">
@@ -83,20 +79,12 @@
                     <span class="text-brand-mid">Gobernanza y Sostenibilidad</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-slate-900 font-normal mb-8 leading-relaxed">
+                <p class="text-lg md:text-xl text-slate-800 font-normal mb-8 leading-relaxed">
                     Cómo el rol de Carlos Enrique Cavelier como "Coordinador de Sueños" salvó las relaciones con los pequeños productores y transformó la cadena de suministro ante la crisis del TLC y el clima.
                 </p>
 
-                <!-- BOTÓN INTERACTIVO PARA PERFIL DE LIDERAZGO -->
-                <div class="mb-10">
-                    <button onclick="toggleModal('bioModal')" class="inline-flex items-center gap-3 bg-brand-dark hover:bg-brand-mid text-white px-6 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-md border-b-4 border-brand-accent text-sm md:text-base">
-                        <i class="fa-solid fa-user-tie text-brand-accent"></i>
-                        Ver Perfil de Carlos Enrique Cavelier
-                    </button>
-                </div>
-
                 <!-- KPIs DESTACADOS EN BURBUJAS -->
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-wrap gap-4 mt-8">
                     <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow text-center min-w-[140px]">
                         <span class="block text-2xl font-bold text-brand-mid">1.500</span>
                         <span class="text-xs uppercase font-extrabold text-slate-800 tracking-wider">Familias Apoyadas</span>
@@ -115,7 +103,7 @@
     </header>
 
     <!-- 2. EL DESAFÍO (THE PROBLEM) -->
-    <section id="desafio" class="bg-brand-soft/20 pb-20">
+    <section id="desafio" class="bg-brand-grayBg pb-20">
         <!-- BANNER DE SECCIÓN DELGADO -->
         <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
             <img src="../assets/imagenfondo.jpg" alt="Producción lechera y campesinado" class="absolute inset-0 w-full h-full object-cover">
@@ -133,9 +121,9 @@
                     <h3 class="font-title text-2xl lg:text-3xl font-bold text-brand-darkest mb-4">El dilema entre importar o desarrollar el campo</h3>
                     <div class="w-16 h-1 bg-brand-accent mb-6 rounded-full"></div>
                     <p class="text-slate-900 leading-relaxed font-normal mb-6 text-lg">
-                        En 2011, una inundación masiva devastó la sabana de Ubaté, ahogando la producción de leche de sus principales proveedores. De manera paralela, la firma del TLC con Estados Unidos amenazaba al sector nacional con importaciones a precios bajos.
+                        En 2011, una inundación masiva devastó la sabana de Ubaté, ahogando la producción de leche de sus principales proveedores. De manera paralela, la firma del TLC con Estados Unidos amenazaba al sector local con importaciones a precios bajos.
                     </p>
-                    <p class="text-slate-800 leading-relaxed font-normal mb-6">
+                    <p class="text-slate-700 leading-relaxed font-normal mb-6">
                         Alquería se enfrentó a dos opciones críticas: aprovechar los bajos aranceles del TLC para importar leche barata del exterior (solución rápida de corto plazo pero devastadora para su relación con los campesinos colombianos), o arriesgarse a desarrollar nuevos proveedores en zonas inexploradas y afectadas por el conflicto armado, como La Macarena.
                     </p>
                 </div>
@@ -195,13 +183,13 @@
                         <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-eye-slash text-brand-red text-xl"></i> Miopía de Corto Plazo
                         </h3>
-                        <p class="text-slate-800 text-base font-normal leading-relaxed mb-4">
+                        <p class="text-slate-700 text-sm font-normal leading-relaxed mb-4">
                             <strong>El riesgo de importar:</strong> Resolver la escasez de leche del 2011 importando de inmediato por los beneficios del TLC, lo que hubiese destruido la relación de confianza con los campesinos colombianos en medio de fuertes marchas agrarias.
                         </p>
                     </div>
                     <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/20 mt-4 text-sm">
-                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900 text-sm">Tratamiento Estratégico:</span>
-                        <p class="text-slate-800 font-semibold text-sm">Rechazar la vía fácil de la importación masiva y comprometerse a desarrollar proveedores locales en nuevas geografías.</p>
+                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900">Tratamiento Estratégico:</span>
+                        <p class="text-slate-800 font-medium">Rechazar la vía fácil de la importación masiva y comprometerse a desarrollar proveedores locales en nuevas geografías.</p>
                     </div>
                 </div>
 
@@ -215,13 +203,13 @@
                         <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-ear-deaf text-brand-red text-xl"></i> Sordera de Valor Compartido
                         </h3>
-                        <p class="text-slate-800 text-base font-normal leading-relaxed mb-4">
+                        <p class="text-slate-700 text-sm font-normal leading-relaxed mb-4">
                             <strong>Ignorar la inestabilidad campesina:</strong> Operar como un comprador frío sujeto a las leyes de oferta y demanda del mercado, dejando de comprar leche cuando el consumo baja, lo que alimentaba la informalidad en las zonas rurales.
                         </p>
                     </div>
                     <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/20 mt-4 text-sm">
-                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900 text-sm">Tratamiento Estratégico:</span>
-                        <p class="text-slate-800 font-semibold text-sm">Establecer la compra de leche asegurada los 365 días del año para dotar de estabilidad financiera real a los campesinos.</p>
+                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900">Tratamiento Estratégico:</span>
+                        <p class="text-slate-800 font-medium">Establecer la compra de leche asegurada los 365 días del año para dotar de estabilidad financiera real a los campesinos.</p>
                     </div>
                 </div>
 
@@ -235,13 +223,13 @@
                         <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-ban text-brand-red text-xl"></i> Temor al Entorno Geopolítico
                         </h3>
-                        <p class="text-slate-800 text-base font-normal leading-relaxed mb-4">
+                        <p class="text-slate-700 text-sm font-normal leading-relaxed mb-4">
                             <strong>Aversión a zonas de conflicto:</strong> Negarse a desarrollar el negocio de abastecimiento en zonas rurales marcadas históricamente por la violencia de las FARC (como La Macarena) debido a temores de orden público y altos costos logísticos.
                         </p>
                     </div>
                     <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/20 mt-4 text-sm">
-                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900 text-sm">Tratamiento Estratégico:</span>
-                        <p class="text-slate-800 font-semibold text-sm">Inversión audaz de más de USD 10 millones para comprar la producción de 1.500 familias de la zona de conflicto, aportando a la paz.</p>
+                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900">Tratamiento Estratégico:</span>
+                        <p class="text-slate-800 font-medium">Inversión audaz de más de USD 10 millones para comprar la producción de 1.500 familias de la zona de conflicto, aportando a la paz.</p>
                     </div>
                 </div>
 
@@ -255,13 +243,13 @@
                         <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-rotate-left text-brand-red text-xl"></i> Bucle de Intereses (Esclerosis Financiera)
                         </h3>
-                        <p class="text-slate-800 text-base font-normal leading-relaxed mb-4">
+                        <p class="text-slate-700 text-sm font-normal leading-relaxed mb-4">
                             <strong>Gasto incontrolable en deuda:</strong> La crisis de finales de los años 90 donde la empresa gastaba toda su caja en pagar intereses y tomaba nuevos créditos solo para cubrir los que se vencían, asfixiando su operación.
                         </p>
                     </div>
                     <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/20 mt-4 text-sm">
-                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900 text-sm">Tratamiento Estratégico:</span>
-                        <p class="text-slate-800 font-semibold text-sm">Acogerse oportunamente al acuerdo de reestructuración de la Ley 550 (Ley de quiebras) para sanear y reprogramar la deuda comercial.</p>
+                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900">Tratamiento Estratégico:</span>
+                        <p class="text-slate-800 font-medium">Acogerse oportunamente al acuerdo de reestructuración de la Ley 550 (Ley de quiebras) para sanear y reprogramar la deuda comercial.</p>
                     </div>
                 </div>
 
@@ -275,13 +263,13 @@
                         <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-flask-vial text-brand-red text-xl"></i> Brecha de Calidad Técnica
                         </h3>
-                        <p class="text-slate-800 text-base font-normal leading-relaxed mb-4">
+                        <p class="text-slate-700 text-sm font-normal leading-relaxed mb-4">
                             <strong>Inconsistencia productiva:</strong> Intentar lanzar tecnología de punta de ultrapasteurización (leche larga vida UHT) importando maquinaria de Francia, pero con una materia prima informal que traía alta carga bacteriana desde el campo.
                         </p>
                     </div>
                     <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/20 mt-4 text-sm">
-                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900 text-sm">Tratamiento Estratégico:</span>
-                        <p class="text-slate-800 font-semibold text-sm">Brindar acompañamiento de zootecnia y asistencia directa a los ganaderos para reducir bacterias y células somáticas en el ordeño.</p>
+                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900">Tratamiento Estratégico:</span>
+                        <p class="text-slate-800 font-medium">Brindar acompañamiento de zootecnia y asistencia directa a los ganaderos para reducir bacterias y células somáticas en el ordeño.</p>
                     </div>
                 </div>
 
@@ -295,13 +283,13 @@
                         <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-cloud-showers-water text-brand-red text-xl"></i> Vulnerabilidad Climática
                         </h3>
-                        <p class="text-slate-800 text-base font-normal leading-relaxed mb-4">
+                        <p class="text-slate-700 text-sm font-normal leading-relaxed mb-4">
                             <strong>Inestabilidad climática extrema:</strong> Pérdida masiva de producción por inundaciones en inviernos severos o sequías extremas que dejaban al ganado sin alimento y a la planta sin materia prima.
                         </p>
                     </div>
                     <div class="bg-brand-soft p-4 rounded-lg border border-brand-mid/20 mt-4 text-sm">
-                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900 text-sm">Tratamiento Estratégico:</span>
-                        <p class="text-slate-800 font-semibold text-sm">Implementar plantas de deshidratación para convertir la leche líquida en polvo y conservarla hasta por un año como buffer.</p>
+                        <span class="text-brand-dark font-bold uppercase block mb-1 text-slate-900">Tratamiento Estratégico:</span>
+                        <p class="text-slate-800 font-medium">Implementar plantas de deshidratación para convertir la leche líquida en polvo y conservarla hasta por un año como buffer.</p>
                     </div>
                 </div>
 
@@ -310,7 +298,7 @@
     </section>
 
     <!-- 4. PLAN DE ACCIÓN PASO A PASO -->
-    <section id="plan-accion" class="bg-brand-soft/20 pb-20">
+    <section id="plan-accion" class="bg-brand-grayBg pb-20">
         <!-- BANNER DE SECCIÓN DELGADO -->
         <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
             <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1920" alt="Campesinos trabajando en el campo" class="absolute inset-0 w-full h-full object-cover">
@@ -332,10 +320,10 @@
                     
                     <!-- Paso 1 -->
                     <div class="flex gap-4">
-                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0 text-base">1</div>
+                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0">1</div>
                         <div>
                             <h4 class="font-bold text-brand-darkest text-lg mb-2">Garantía de compra los 365 días del año</h4>
-                            <p class="text-base text-slate-800 font-normal leading-relaxed">
+                            <p class="text-base text-slate-900 font-normal leading-relaxed">
                                 Para erradicar la informalidad y la incertidumbre campesina, Alquería estableció como política comprar la leche de forma constante todo el año, independientemente de las fluctuaciones de consumo del mercado.
                             </p>
                         </div>
@@ -343,10 +331,10 @@
 
                     <!-- Paso 2 -->
                     <div class="flex gap-4">
-                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0 text-base">2</div>
+                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0">2</div>
                         <div>
                             <h4 class="font-bold text-brand-darkest text-lg mb-2">Infraestructura de almacenamiento y deshidratación</h4>
-                            <p class="text-base text-slate-800 font-normal leading-relaxed">
+                            <p class="text-base text-slate-900 font-normal leading-relaxed">
                                 Construimos centros de acopio en frío y maquinaria de deshidratación. El excedente se almacena como leche en polvo hasta por un año y se rehidrata en épocas de escasez (inundaciones), actuando como buffer de suministro nacional.
                             </p>
                         </div>
@@ -354,10 +342,10 @@
 
                     <!-- Paso 3 -->
                     <div class="flex gap-4">
-                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0 text-base">3</div>
+                        <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center shrink-0">3</div>
                         <div>
                             <h4 class="font-bold text-brand-darkest text-lg mb-2">Alianzas de capacitación técnica (SENA)</h4>
-                            <p class="text-base text-slate-800 font-normal leading-relaxed">
+                            <p class="text-base text-slate-900 font-normal leading-relaxed">
                                 Creamos programas para capacitar a los hijos de los pequeños productores. El objetivo: lograr que hereden y vean el campo como una empresa competitiva y rentable a largo plazo, elevando la eficiencia del suelo y el ganado.
                             </p>
                         </div>
@@ -369,7 +357,7 @@
                     <h4 class="font-title font-bold text-lg text-brand-darkest mb-6 border-b pb-2">Estructura del Líder Alquería</h4>
                     <div class="space-y-6">
                         <div>
-                            <h5 class="font-bold text-brand-dark text-base flex items-center gap-2 mb-1">
+                            <h5 class="font-bold text-brand-dark text-sm flex items-center gap-2 mb-1">
                                 <i class="fa-solid fa-heart text-brand-mid"></i> Sentido Humano
                             </h5>
                             <p class="text-sm text-slate-800 font-medium">
@@ -377,7 +365,7 @@
                             </p>
                         </div>
                         <div>
-                            <h5 class="font-bold text-brand-dark text-base flex items-center gap-2 mb-1">
+                            <h5 class="font-bold text-brand-dark text-sm flex items-center gap-2 mb-1">
                                 <i class="fa-solid fa-arrows-to-dot"></i> Fomento de Autogestión
                             </h5>
                             <p class="text-sm text-slate-800 font-medium">
@@ -385,20 +373,13 @@
                             </p>
                         </div>
                         <div>
-                            <h5 class="font-bold text-brand-dark text-base flex items-center gap-2 mb-1">
+                            <h5 class="font-bold text-brand-dark text-sm flex items-center gap-2 mb-1">
                                 <i class="fa-solid fa-bolt"></i> Pasión y Talento
                             </h5>
                             <p class="text-sm text-slate-800 font-medium">
                                 Entusiasta, flexible y disciplinado. Potencia las habilidades técnicas y la inteligencia emocional de sus colaboradores.
                             </p>
                         </div>
-                    </div>
-
-                    <!-- Enlace adicional al perfil completo del líder dentro de la tarjeta -->
-                    <div class="mt-8 pt-6 border-t border-slate-100">
-                        <button onclick="toggleModal('bioModal')" class="w-full text-center text-sm font-bold text-brand-dark hover:text-brand-mid bg-brand-soft hover:bg-brand-soft/80 py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-eye"></i> Analizar Biografía Gerencial Completa
-                        </button>
                     </div>
                 </div>
 
@@ -448,7 +429,7 @@
     </section>
 
     <!-- 6. RESULTADOS & RETORNO DE LA INVERSIÓN (ROI) -->
-    <section id="resultados" class="bg-brand-soft/20 pb-20">
+    <section id="resultados" class="bg-brand-grayBg pb-20">
         <!-- BANNER DE SECCIÓN DELGADO -->
         <div class="relative h-48 md:h-64 w-full overflow-hidden flex items-center justify-center mb-16">
             <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1920" alt="Reunión directiva analizando resultados" class="absolute inset-0 w-full h-full object-cover">
@@ -500,7 +481,7 @@
                     "Alquería demostró que las decisiones éticas de alta dirección son el escudo de suministro más potente que una organización puede poseer. Armonizar las metas económicas con las sociales no resta competitividad; por el contrario, construye la resiliencia estructural necesaria para sortear las curvas más difíciles del mercado y el cambio climático."
                 </p>
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold text-base">
+                    <div class="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold">
                         ARA
                     </div>
                     <div>
@@ -512,199 +493,11 @@
         </div>
     </section>
 
-    <!-- MODAL DE CARLOS ENRIQUE CAVELIER -->
-    <div id="bioModal" class="fixed inset-0 z-50 hidden overflow-y-auto" role="dialog" aria-modal="true">
-        <!-- Backdrop oscuro de alto contraste -->
-        <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity" onclick="toggleModal('bioModal')"></div>
-        
-        <!-- Contenedor del Modal -->
-        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-6 lg:p-8">
-            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 w-full max-w-4xl border border-slate-200 flex flex-col max-h-[90vh]">
-                
-                <!-- Encabezado del Modal -->
-                <div class="bg-brand-darkest px-6 py-5 flex items-center justify-between border-b border-brand-mid/30 shrink-0">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-brand-mid/40 flex items-center justify-center text-brand-accent text-xl">
-                            <i class="fa-solid fa-user-tie"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg md:text-xl font-title font-bold text-white">Perfil Directivo: Carlos Enrique Cavelier</h3>
-                            <span class="text-xs text-brand-accent uppercase tracking-wider font-semibold">Coordinador de Sueños • Alquería S.A.</span>
-                        </div>
-                    </div>
-                    <button onclick="toggleModal('bioModal')" class="text-slate-400 hover:text-white p-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent" aria-label="Cerrar modal">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-
-                <!-- Cuerpo Scrollable del Modal (Con textos de tamaño y contraste accesible) -->
-                <div class="px-6 py-6 overflow-y-auto space-y-8 bg-slate-50 text-slate-900 leading-relaxed text-base">
-                    
-                    <!-- Fila 1: Orígenes y Educación -->
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                        <div class="md:col-span-4 bg-white p-5 rounded-xl border border-slate-200 card-shadow">
-                            <div class="w-14 h-14 bg-brand-soft rounded-xl flex items-center justify-center mb-4 text-brand-dark text-2xl border border-brand-mid/10">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-                            <h4 class="font-bold text-brand-darkest text-lg mb-2">Formación Humana</h4>
-                            <ul class="space-y-2 text-sm text-slate-800">
-                                <li><strong class="text-brand-dark">Estudios:</strong> Antropólogo y Sociólogo graduado en EE. UU. (1985).</li>
-                                <li><strong class="text-brand-dark">Arraigo Campesino:</strong> Creció en Cajicá jugando con los ordeñadores de Alquería, ganando empatía cultural desde niño.</li>
-                            </ul>
-                        </div>
-
-                        <div class="md:col-span-8 space-y-4">
-                            <h4 class="font-title font-bold text-xl text-brand-darkest flex items-center gap-2">
-                                <i class="fa-solid fa-compass text-brand-accent"></i> 1. El Líder y su Conexión de Valor
-                            </h4>
-                            <p class="text-slate-800 font-normal">
-                                La participación de Carlos Enrique Cavelier en Alquería (como se referencia en <span class="italic font-semibold">Alquería.pdf</span>) redefine el modelo directivo tradicional. Su formación académica no se enfocó en finanzas frías, sino en la comprensión sociológica de las personas. 
-                            </p>
-                            <p class="text-slate-700 font-normal">
-                                Este arraigo inicial con el campesinado colombiano sentó las bases para crear el modelo de <strong>Valor Compartido</strong>, donde el desarrollo económico de la empresa está directamente entrelazado con el bienestar estructural de la cadena rural de suministro.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Fila 2: Vocación y Punto de Quiebre -->
-                    <div class="border-t border-slate-200 pt-6">
-                        <h4 class="font-title font-bold text-xl text-brand-darkest mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-shuffle text-brand-accent"></i> 2. Vocación Pública y el Punto de Quiebre (1992)
-                        </h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm md:text-base">
-                            <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow">
-                                <span class="text-xs uppercase font-extrabold text-brand-accent tracking-wider block mb-2">Trayectoria de Servicio</span>
-                                <p class="text-slate-800">
-                                    Carlos dedicó 8 años de su vida a la actividad pública del país, trabajando como concejal de Cajicá, diputado de la Asamblea de Cundinamarca, representante a la Cámara, asesor del Ministro de Agricultura y Secretario General del Ministerio de Justicia. Militó activamente en el Nuevo Liberalismo junto al inmolado Luis Carlos Galán.
-                                </p>
-                            </div>
-                            <div class="bg-brand-redsoft p-5 rounded-xl border border-brand-red/20">
-                                <span class="text-xs uppercase font-extrabold text-brand-red tracking-wider block mb-2">La Inflexión Histórica</span>
-                                <p class="text-slate-900 font-normal">
-                                    En julio de 1992, bajo su gestión como Secretario de Justicia, ocurre la fuga de Pablo Escobar de la cárcel La Catedral. Ante el inminente riesgo de seguridad personal y la fuerte persecución política de la época, Cavelier decide dar un giro radical a su destino, renunciando al sector público para asumir la gerencia de Alquería.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Fila 3: El Giro de la Leche Larga Vida UHT -->
-                    <div class="border-t border-slate-200 pt-6 space-y-4">
-                        <h4 class="font-title font-bold text-xl text-brand-darkest flex items-center gap-2">
-                            <i class="fa-solid fa-bolt text-brand-accent"></i> 3. El Giro Empresarial y la Revolución Tecnológica
-                        </h4>
-                        <p class="text-slate-800">
-                            Al asumir el cargo en 1992, la empresa operaba con bajos rendimientos. Cavelier viaja a Francia para investigar nuevas metodologías de conservación y decide importar la tecnología de **ultrapasteurización (UHT)**, convirtiendo a Alquería en pionera de la leche de larga vida en Colombia. 
-                        </p>
-                        <p class="text-slate-800">
-                            Este cambio no solo exigió inversiones en planta de envasado aséptico (como la inaugurada en 2005), sino que obligó al área de Fomento Ganadero a capacitar técnicamente a los pequeños proveedores para garantizar una materia prima de calidad 1A (baja carga bacteriana y estricto control de células somáticas).
-                        </p>
-                    </div>
-
-                    <!-- Fila 4: Filosofía de Liderazgo "Coordinador de Sueños" -->
-                    <div class="border-t border-slate-200 pt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                        <div class="md:col-span-8 space-y-4">
-                            <h4 class="font-title font-bold text-xl text-brand-darkest flex items-center gap-2">
-                                <i class="fa-solid fa-cloud-sun text-brand-accent"></i> 4. Filosofía Directiva: Coordinador de Sueños
-                            </h4>
-                            <p class="text-slate-800">
-                                Carlos Enrique Cavelier optó por cambiar su título formal de "Presidente" por el de **"Coordinador de Sueños"**, con el objetivo de promover una cultura organizacional flexible y altamente humana. Su gestión se basa en la idea de que los colaboradores deben "morir por trabajar en Alquería", facilitando planes de crecimiento y autogestión.
-                            </p>
-                            <p class="text-slate-800">
-                                En el plano comunitario, fundó la **Fundación Cavelier Lozano** en 2010 para trabajar activamente en la educación de calidad y nutrición de los jóvenes de Cajicá, asegurando que los hijos de los campesinos vean el campo colombiano como una empresa competitiva, sostenible y rentable.
-                            </p>
-                        </div>
-                        <div class="md:col-span-4 bg-brand-dark text-white p-5 rounded-xl border border-brand-mid">
-                            <h5 class="font-bold text-brand-accent text-lg mb-2"><i class="fa-solid fa-medal mr-2"></i> Valor Compartido</h5>
-                            <p class="text-xs text-slate-200 leading-relaxed">
-                                "El éxito de un negocio no reside únicamente en su balance contable. Armonizar las metas económicas de la empresa con las metas ambientales y sociales del entorno rural es el único camino ético para garantizar la longevidad del negocio."
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Fila 5: Los Desafíos en La Macarena (La Gran Apuesta Social) -->
-                    <div class="border-t border-slate-200 pt-6 space-y-4">
-                        <h4 class="font-title font-bold text-xl text-brand-darkest flex items-center gap-2">
-                            <i class="fa-solid fa-mountain text-brand-accent"></i> 5. La Macarena: Resiliencia Ante el Conflicto Geopolítico
-                        </h4>
-                        <p class="text-slate-800">
-                            La verdadera prueba de fuego para el modelo de valor compartido de Cavelier ocurrió al expandir la red de abastecimiento en la **Serranía de la Macarena**, zona que históricamente había servido como cuna de las FARC.
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mt-2">
-                            <div class="bg-white p-4 rounded-lg border border-slate-200 flex gap-3">
-                                <span class="text-brand-red font-bold text-lg">A.</span>
-                                <div>
-                                    <strong class="text-slate-900 block font-semibold">Incertidumbre Operativa:</strong>
-                                    Enfrentar presiones de grupos armados, problemas severos de orden público y la falta de tradición lechera local de los ganaderos.
-                                </div>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg border border-slate-200 flex gap-3">
-                                <span class="text-brand-red font-bold text-lg">B.</span>
-                                <div>
-                                    <strong class="text-slate-900 block font-semibold">Elevados Costos Logísticos:</strong>
-                                    Instalar tanques de acopio en frío e infraestructura vial precaria en zonas rurales inexploradas.
-                                </div>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg border border-slate-200 flex gap-3">
-                                <span class="text-brand-red font-bold text-lg">C.</span>
-                                <div>
-                                    <strong class="text-slate-900 block font-semibold">Inversión Ética Firme:</strong>
-                                    Decidir invertir más de 10 millones de dólares para comprar diariamente la producción de leche de 1.500 familias locales con un esquema de paga fija.
-                                </div>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg border border-slate-200 flex gap-3">
-                                <span class="text-brand-red font-bold text-lg">D.</span>
-                                <div>
-                                    <strong class="text-slate-900 block font-semibold">Consolidación de Paz:</strong>
-                                    Ofrecer una alternativa económica legal, estable y próspera para transformar un territorio asolado por la violencia.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Footer del Modal -->
-                <div class="bg-slate-100 px-6 py-4 flex justify-end gap-3 border-t border-slate-200 shrink-0">
-                    <button onclick="toggleModal('bioModal')" class="bg-brand-dark hover:bg-brand-mid text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-colors">
-                        Entendido, Cerrar
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
     <!-- FOOTER -->
     <footer class="bg-brand-darkest text-slate-400 py-10 px-6 border-t-4 border-brand-accent text-center text-xs">
         <p class="mb-2 text-white">© 2026 ARA Consultora. Todos los derechos reservados.</p>
         <p>Estrategia, valor compartido y marco de trabajo adaptados para la Alta Dirección de Productos Naturales de la Sabana S.A. Alquería.</p>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
-    <script>
-        // Función genérica para abrir y cerrar modales interactivos
-        function toggleModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.toggle('hidden');
-                // Bloquear o desbloquear scroll del body
-                if (!modal.classList.contains('hidden')) {
-                    document.body.classList.add('overflow-hidden');
-                } else {
-                    document.body.classList.remove('overflow-hidden');
-                }
-            }
-        }
-
-        // Permitir cerrar modal con la tecla Esc por accesibilidad
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const modal = document.getElementById('bioModal');
-                if (modal && !modal.classList.contains('hidden')) {
-                    toggleModal('bioModal');
-                }
-            }
-        });
-    </script>
 </body>
 </html>
