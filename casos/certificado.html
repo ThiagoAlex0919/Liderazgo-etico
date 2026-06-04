@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificación de Empresa B | ARA Consultora</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config de ARA Brand Ecosystem -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            darkest: '#0a221a',  /* Verde bosque profundo ARA */
+                            dark: '#1b4332',     /* Verde corporativo principal */
+                            mid: '#2d6a4f',      /* Verde medio activo */
+                            soft: '#f0fdf4',     /* Fondo sutil verde */
+                            accent: '#cba365',   /* Oro/Bronce de prestigio */
+                            grayBg: '#f8fafc',   /* Gris claro de alto contraste */
+                            light: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .card-shadow {
+            box-shadow: 0 10px 30px -10px rgba(27, 67, 50, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 20px 40px -10px rgba(27, 67, 50, 0.16);
+            transform: translateY(-4px);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #1b4332; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #cba365; }
+    </style>
+</head>
+<body class="bg-white text-slate-700 font-sans antialiased overflow-x-hidden">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <!--a href="../index.html" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 rounded bg-brand-dark flex items-center justify-center text-white font-title font-bold text-xl relative overflow-hidden">
+                        ARA
+                    </div>
+                    <div>
+                        <span class="font-title font-bold text-brand-darkest tracking-widest text-lg leading-none block">ARA</span>
+                        <span class="text-[10px] text-brand-mid uppercase tracking-[0.2em] font-semibold">Consultora</span>
+                    </div>
+                </a-->
+                <a href="../index.html" class="text-brand-dark font-bold"><i class="fa-solid fa-arrow-left mr-2"></i>Volver al Inicio</a>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                  
+                    <a href="#por-que" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">¿Por qué B?</a>
+                    <a href="#beneficios" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">Beneficios</a>
+                    <a href="#como" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">¿Cómo hacerlo?</a>
+                    <a href="#simulador" class="text-brand-darkest hover:text-brand-mid text-sm font-semibold transition-colors flex items-center gap-1.5 bg-brand-soft px-3 py-1.5 rounded-full border border-brand-mid/10">
+                        <i class="fa-solid fa-square-poll-horizontal text-brand-accent"></i> Autodiagnóstico B
+                    </a>
+                    
+                    
+                </div>
+
+                <!-- Botón Menú Mobile -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-accent p-2" aria-label="Abrir menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Mobile Desplegable -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-b border-slate-200 shadow-lg absolute w-full z-50">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">Inicio</a>
+                <a href="#por-que" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">¿Por qué B?</a>
+                <a href="#beneficios" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">Beneficios</a>
+                <a href="#como" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">¿Cómo hacerlo?</a>
+                <a href="#simulador" class="text-brand-dark block px-3 py-3 rounded-md text-base font-bold border-b border-slate-100">Autodiagnóstico B</a>
+                <a href="sistema-b.html" class="text-brand-dark font-bold block px-3 py-3 rounded-md text-base">Temas de Impacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-[85vh] flex items-center bg-white pt-20 overflow-hidden">
+        <div class="absolute inset-0 w-full h-full z-0">
+            <!-- Imagen de fondo que proyecta sostenibilidad y negocios modernos -->
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1920" alt="Sostenibilidad Corporativa" class="w-full h-full object-cover object-center opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/20"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+            <div class="max-w-3xl py-12">
+                <div class="inline-flex items-center gap-2 bg-brand-soft border border-brand-mid/30 px-4 py-1.5 rounded-full text-brand-dark text-xs font-bold tracking-widest uppercase mb-6">
+                    <i class="fa-solid fa-heart-circle-check text-brand-accent animate-pulse"></i> Redefina el éxito de su negocio
+                </div>
+                
+                <h1 class="font-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-darkest tracking-tight leading-tight mb-6">
+                    Una Invitación a Liderar la <br>
+                    <span class="text-brand-mid">Nueva Economía de Triple Impacto</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-800 font-light mb-8 leading-relaxed">
+                    Las mejores empresas no solo compiten para ser las mejores *del* mundo, sino las mejores *para* el mundo. ARA Consultora le ayuda a estructurar, evaluar y validar su camino hacia la prestigiosa <strong>Certificación como Empresa B</strong>.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="#simulador" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-mid text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-md text-sm uppercase tracking-wider">
+                        <i class="fa-solid fa-chart-line text-brand-accent"></i> Simular Readiness BIA
+                    </a>
+                    <a href="#como" class="inline-flex items-center gap-2 bg-white hover:bg-brand-soft text-brand-dark border border-brand-dark/20 px-8 py-4 rounded-full font-bold transition-all text-sm uppercase tracking-wider">
+                        Ver Ruta de Trabajo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION: POR QUÉ HACERLO (THE CHALLENGE / THE PURPOSE) -->
+    <section id="por-que" class="bg-brand-grayBg py-24 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs">Propósito y Futuro</span>
+                <h2 class="font-title text-3xl md:text-4xl font-bold text-brand-darkest mt-2 leading-tight">
+                    ¿Por qué las organizaciones líderes eligen certificarse como Empresa B?
+                </h2>
+                <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <p class="text-slate-800 leading-relaxed font-light text-lg">
+                        El viejo paradigma donde la única responsabilidad de la corporación era generar rendimientos financieros para el accionista (Milton Friedman) está obsoleto. El mercado global exige hoy **coherencia ética, resiliencia ecológica y responsabilidad social real**.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed font-light text-base">
+                        Unirse a la comunidad de **Sistema B** no es solo colgar un sello reputacional en su sitio web. Es un compromiso estratégico, estatuario y operativo para responder con rigor técnico a las demandas de colaboradores, inversionistas, comunidades y el ecosistema en el que se opera.
+                    </p>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-soft flex items-center justify-center text-brand-dark text-xl shrink-0">
+                            <i class="fa-solid fa-quote-left text-brand-accent"></i>
+                        </div>
+                        <p class="text-sm italic text-slate-700 font-medium">
+                            "Ser una Empresa B no es ser perfectos, es comprometerse de manera transparente a una ruta formal e irreversible de mejora continua en la gestión de todos los impactos del negocio."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-[#ea580c]/10 rounded-xl flex items-center justify-center text-[#ea580c] text-xl mb-4">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <h3 class="font-title font-bold text-lg text-brand-darkest mb-2">Exigencia del Consumidor</h3>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">
+                                Los nuevos mercados rechazan el greenwashing. Prefieren de manera activa marcas transparentes y validadas de forma independiente.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-[#2563eb]/10 rounded-xl flex items-center justify-center text-[#2563eb] text-xl mb-4">
+                                <i class="fa-solid fa-magnifying-glass-dollar"></i>
+                            </div>
+                            <h3 class="font-title font-bold text-lg text-brand-darkest mb-2">Criterio de Inversión ESG</h3>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">
+                                Los grandes fondos globales priorizan hoy el capital hacia empresas con rigurosos marcos estructurados de gobierno y sostenibilidad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-[#16a34a]/10 rounded-xl flex items-center justify-center text-[#16a34a] text-xl mb-4">
+                                <i class="fa-solid fa-users-gear"></i>
+                            </div>
+                            <h3 class="font-title font-bold text-lg text-brand-darkest mb-2">Talento con Propósito</h3>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">
+                                Los profesionales de alto desempeño (Gen Z / Millennials) se niegan a trabajar en empresas que solo persiguen fines económicos fríos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-[#9333ea]/10 rounded-xl flex items-center justify-center text-[#9333ea] text-xl mb-4">
+                                <i class="fa-solid fa-handshake-simple"></i>
+                            </div>
+                            <h3 class="font-title font-bold text-lg text-brand-darkest mb-2">Alianzas Colectivas</h3>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">
+                                Una red comercial unificada que favorece los encadenamientos de proveeduría responsable con otras empresas afines de la comunidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: BENEFICIOS DE CERTIFICARSE -->
+    <section id="beneficios" class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs">Retorno del Impacto (ROI)</span>
+                <h2 class="font-title text-3xl md:text-4xl font-extrabold text-brand-darkest mt-2 leading-tight">
+                    Beneficios Corporativos de Alto Impacto
+                </h2>
+                <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-500 font-light mt-4 text-sm md:text-base">
+                    Certificarse como Empresa B no solo es un acto ético; es una decisión corporativa sumamente estratégica que robustece sus métricas comerciales.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Beneficio 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-[#ea580c]"></div>
+                    <div class="w-12 h-12 bg-[#fbe3d4] text-[#ea580c] rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-title font-bold text-xl text-brand-darkest mb-3">Protección Legal del Propósito</h3>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Al modificar estatutos societarios, los administradores protegen de manera legal su misión de largo plazo, amparándolos a tomar decisiones basadas en intereses socioambientales y no solo financieros.
+                    </p>
+                </div>
+
+                <!-- Beneficio 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-[#2563eb]"></div>
+                    <div class="w-12 h-12 bg-blue-50 text-[#2563eb] rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-title font-bold text-xl text-brand-darkest mb-3">Optimización Continua de la Operación</h3>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        La Evaluación de Impacto B (BIA) actúa como un software interno de auditoría. Permite visibilizar ineficiencias de recursos, mejorar el clima organizacional y optimizar procesos comerciales.
+                    </p>
+                </div>
+
+                <!-- Beneficio 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-[#16a34a]"></div>
+                    <div class="w-12 h-12 bg-green-50 text-[#16a34a] rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <h3 class="font-title font-bold text-xl text-brand-darkest mb-3">Ventaja Competitiva y Posicionamiento</h3>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Diferenciación contundente y honesta en el mercado. El sello B es reconocido mundialmente por su rigor técnico, alejándolo por completo de la sospecha del marketing de humo.
+                    </p>
+                </div>
+
+                <!-- Beneficio 4 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-[#ca8a04]"></div>
+                    <div class="w-12 h-12 bg-[#fef9c3] text-[#ca8a04] rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="font-title font-bold text-xl text-brand-darkest mb-3">Acceso Preferente a Capital</h3>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Entidades financieras y redes de inversionistas de impacto ofrecen cada vez más productos, tasas preferenciales y capital semilla exclusivo para Empresas B consolidadas.
+                    </p>
+                </div>
+
+                <!-- Beneficio 5 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-[#db2777]"></div>
+                    <div class="w-12 h-12 bg-[#fce7f3] text-[#db2777] rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h3 class="font-title font-bold text-xl text-brand-darkest mb-3">Alianzas e Intercambios con C-Suite</h3>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Acceso a redes directas de colaboración regional e internacional (como las comunidades B locales) donde los directivos co-diseñan proyectos sostenibles y abren nuevos mercados.
+                    </p>
+                </div>
+
+                <!-- Beneficio 6 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-[#9333ea]"></div>
+                    <div class="w-12 h-12 bg-purple-50 text-[#9333ea] rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="font-title font-bold text-xl text-brand-darkest mb-3">Prevención de Crisis Reputacionales</h3>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Al auditar de manera constante las relaciones de la cadena de suministro, se identifican y mitigan riesgos ético-legales antes de que alcancen repercusión pública destructiva.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CÓMO HACERLO (ROADMAP DE CERTIFICACIÓN) -->
+    <section id="como" class="bg-brand-grayBg py-24 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs">La Ingeniería del Proceso</span>
+                <h2 class="font-title text-3xl md:text-4xl font-extrabold text-brand-darkest mt-2 leading-tight">
+                    ¿Cómo lograr la Certificación? Su Ruta de Trabajo
+                </h2>
+                <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-500 font-light mt-4 text-sm md:text-base">
+                    Alinear la operación con los exigentes Estándares de B Lab requiere un proceso metodológico estructurado que ARA Consultora acompaña de extremo a extremo.
+                </p>
+            </div>
+
+            <!-- Paso a Paso Horizontal/Vertical -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-sm">
+                <!-- Paso 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between relative">
+                    <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-dark text-white font-title font-bold flex items-center justify-center">1</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-brand-darkest text-base mb-2">Diagnóstico de Alineación</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            Evaluación diagnóstica rápida inicial de la empresa para ubicar brechas frente a los estándares de la BIA y estructurar el caso comercial del proyecto.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between relative">
+                    <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-dark text-white font-title font-bold flex items-center justify-center">2</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-brand-darkest text-base mb-2">Diligenciar BIA en Detalle</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            Acompañamiento técnico para responder de manera veraz, profunda y documentada las preguntas de las 5 categorías oficiales de B Lab.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between relative">
+                    <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-dark text-white font-title font-bold flex items-center justify-center">3</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-brand-darkest text-base mb-2">Cierre de Brechas</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            Diseño de políticas laborales, auditorías de carbono (Alcance 1, 2, 3) y manuales éticos de cabildeo necesarios para superar de forma holística la barrera de los 80 puntos mínimos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between relative">
+                    <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-dark text-white font-title font-bold flex items-center justify-center">4</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-brand-darkest text-base mb-2">Compromiso Legal y Estatutos</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            Redacción y formalización notarial de la modificación estatutaria exigida por B Lab, garantizando la protección jurídica local del propósito.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between relative">
+                    <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-dark text-white font-title font-bold flex items-center justify-center">5</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-brand-darkest text-base mb-2">Auditoría de Verificación</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            Soporte estratégico durante la fase oficial de auditoría telefónica o presencial por parte del equipo de B Lab para asegurar la obtención del sello.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: INTERACTIVE B-IMPACT CALCULATOR SIMULATOR -->
+    <section id="simulador" class="bg-white py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[#16a34a] font-extrabold tracking-[0.2em] uppercase text-xs">Simulador Exclusivo ARA</span>
+                <h2 class="font-title text-3xl md:text-4xl font-extrabold text-brand-darkest mt-2">B-Impact Readiness Quiz</h2>
+                <div class="w-16 h-1 bg-[#16a34a] mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-500 font-light mt-4 text-sm md:text-base">
+                    Responda las siguientes 5 preguntas basadas en los estándares de la BIA para obtener un puntaje proyectado de preparación para la certificación.
+                </p>
+            </div>
+
+            <!-- Quiz Card Container -->
+            <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-xl max-w-3xl mx-auto">
+                <div id="quiz-screen">
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-slate-200 h-2.5 rounded-full mb-8 overflow-hidden">
+                        <div id="quiz-progress" class="bg-[#16a34a] h-full w-[20%] transition-all duration-300"></div>
+                    </div>
+
+                    <!-- Question Block -->
+                    <div id="question-container" class="space-y-6">
+                        <span id="question-category" class="text-xs uppercase font-extrabold text-brand-accent tracking-widest block">Categoría: Gobernanza</span>
+                        <h3 id="question-text" class="font-title text-xl font-bold text-brand-darkest leading-snug">
+                            1. ¿Cuenta su organización con una declaración formal de propósito social/ambiental en sus estatutos legales públicos?
+                        </h3>
+                        
+                        <!-- Options Wrapper -->
+                        <div id="options-container" class="space-y-3 pt-2">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Screen (Hidden initially) -->
+                <div id="result-screen" class="hidden text-center space-y-6 py-6 animate-fade-in">
+                    <div class="w-24 h-24 rounded-full bg-brand-soft border-4 border-[#16a34a] flex items-center justify-center mx-auto shadow-md">
+                        <span id="final-score" class="text-3xl font-extrabold text-[#16a34a]">80</span>
+                    </div>
+                    
+                    <div>
+                        <h3 id="result-title" class="font-title text-2xl font-bold text-brand-darkest">¡Buen Camino Inicial!</h3>
+                        <p id="result-desc" class="text-slate-500 text-sm max-w-lg mx-auto leading-relaxed mt-2">
+                            Su empresa tiene bases sólidas de gobernanza pero requiere estructuración rigurosa de cara a los temas ambientales y de colaboradores.
+                        </p>
+                    </div>
+
+                    <div id="recs-box" class="bg-white border border-slate-200 rounded-2xl p-5 text-left text-xs max-w-xl mx-auto space-y-2">
+                        <strong class="text-brand-darkest uppercase block border-b pb-1">Recomendaciones de Consultoría ARA:</strong>
+                        <ul id="recs-list" class="list-disc pl-5 text-slate-600 space-y-1">
+                            <!-- Injected by JS -->
+                        </ul>
+                    </div>
+
+                    <div class="pt-4 flex flex-wrap justify-center gap-4">
+                        <button onclick="resetQuiz()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-colors">
+                            <i class="fa-solid fa-rotate-left mr-1"></i> Reiniciar Test
+                        </button>
+                        <a href="#contacto" class="bg-brand-dark hover:bg-brand-mid text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-colors shadow">
+                            Solicitar Análisis 1-on-1 Gratuito
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION & CONTACT -->
+    <section id="contacto" class="bg-brand-darkest text-white py-24 relative overflow-hidden">
+        <div class="absolute -right-40 -bottom-40 w-96 h-96 bg-brand-mid/20 rounded-full blur-3xl"></div>
+        <div class="absolute -left-40 -top-40 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs">Alineación Estratégica</span>
+                    <h2 class="font-title text-3xl md:text-5xl font-extrabold tracking-tight leading-none">
+                        ¿Su Organización está Lista para el Cambio?
+                    </h2>
+                    <p class="text-slate-300 font-light text-base md:text-lg leading-relaxed">
+                        No navegue solo las complejidades de la BIA y la recertificación B Corp. Nuestro equipo de consultores certificados le ayudará a estructurar el expediente, documentar los avances y optimizar su retorno.
+                    </p>
+                    <div class="border-l-4 border-brand-accent pl-6 py-2">
+                        <p class="font-title text-base font-semibold text-brand-accent italic leading-snug">
+                            "Transformemos juntos la rentabilidad de su negocio en el escudo social del futuro de su sector."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <!-- Formulario Directivo -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-2xl text-slate-800">
+                        <h3 class="font-title font-bold text-xl text-brand-darkest mb-6">Solicitar Diagnóstico Preliminar de Alineación B</h3>
+                        
+                        <form id="contact-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1" for="name">Nombre Completo</label>
+                                <input type="text" id="name" required class="w-full p-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-mid" placeholder="Ingresas su nombre...">
+                            </div>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1" for="company">Organización</label>
+                                    <input type="text" id="company" required class="w-full p-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-mid" placeholder="Nombre de empresa...">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1" for="email">E-mail Corporativo</label>
+                                    <input type="email" id="email" required class="w-full p-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-mid" placeholder="usuario@empresa.com">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1" for="size">Tamaño de la Empresa</label>
+                                <select id="size" class="w-full p-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-mid bg-white">
+                                    <option value="1-10">1 a 10 colaboradores</option>
+                                    <option value="11-49">11 a 49 colaboradores</option>
+                                    <option value="50-250">50 a 250 colaboradores</option>
+                                    <option value="250+">Más de 250 colaboradores</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full bg-[#16a34a] hover:bg-[#15803d] text-white py-4 rounded-xl font-bold transition-colors text-xs uppercase tracking-widest shadow-md">
+                                <i class="fa-solid fa-calendar-check mr-2"></i> Solicitar Sesión Estratégica Gratuita
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-darkest text-slate-400 py-12 px-6 border-t-4 border-brand-accent text-center text-xs">
+        <p class="mb-2 text-white">© 2026 ARA Consultora. Todos los derechos reservados.</p>
+        <p class="max-w-2xl mx-auto opacity-70">
+            Firma consultora especializada en Gobernanza Ética, Responsabilidad Empresarial y Creación de Valor Compartido adaptada al entorno adaptativo y regulatorio de América Latina.
+        </p>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Database of Questions for B-Impact Readiness Simulator
+        const quizData = [
+            {
+                category: 'Gobernanza',
+                question: '1. ¿Cuenta su organización con una declaración formal de propósito social/ambiental en sus estatutos legales públicos?',
+                options: [
+                    { text: 'A. Sí, está inscrito formalmente en los estatutos y aprobado por la junta.', score: 25, rec: 'Excelente gobernanza formal. Proteja legalmente este avance.' },
+                    { text: 'B. Sí, pero está solo en declaraciones internas/misión sin registrar de forma estatutaria.', score: 15, rec: 'Asigne un hito para realizar la reforma formal estatutaria exigida por B Lab.' },
+                    { text: 'C. No, no contamos con propósito formal legalmente registrado.', score: 5, rec: 'Gobernanza desprotegida. Es mandatorio estructurar su reforma estatutaria.' }
+                ]
+            },
+            {
+                category: 'Colaboradores',
+                question: '2. ¿Cómo maneja su empresa la compensación salarial frente al costo de vida local?',
+                options: [
+                    { text: 'A. Pagamos un salario digno ("Living Wage") validado por encima del sueldo mínimo legal.', score: 25, rec: 'Estructura laboral excelente. Su tasa de retención debe ser de vanguardia.' },
+                    { text: 'B. Pagamos el mínimo legal pero ofrecemos un portafolio robusto de beneficios flexibles.', score: 15, rec: 'Los beneficios aminoran la rotación, pero evalúe formalmente el salario digno de su sector.' },
+                    { text: 'C. Pagamos estrictamente los salarios del mínimo de ley sin revisiones de costo de vida.', score: 5, rec: 'Riesgo alto de rotación. Audite el nivel de asfixia financiera de su plantilla.' }
+                ]
+            },
+            {
+                category: 'Medio Ambiente',
+                question: '3. ¿Mide de manera periódica, audita externamente y publica su inventario de huella de carbono (GEI)?',
+                options: [
+                    { text: 'A. Sí, medimos y publicamos anualmente Alcance 1, 2 y 3, auditados de forma independiente.', score: 25, rec: 'Liderazgo en Acción Climática. Sostenga la verificación independiente.' },
+                    { text: 'B. Sí, medimos el Alcance 1 y 2 de forma interna pero no el 3 ni publicamos el reporte.', score: 15, rec: 'Amplíe su métrica hacia Alcance 3 para controlar la huella de su proveeduría.' },
+                    { text: 'C. No realizamos ninguna medición formal de gases de efecto invernadero (GEI).', score: 5, rec: 'Vulnerabilidad ambiental crítica. Implemente de forma urgente el inventario inicial.' }
+                ]
+            },
+            {
+                category: 'Comunidad',
+                question: '4. ¿Qué porcentaje de sus compras críticas de proveeduría se dirigen a proveedores locales, pymes o de impacto social?',
+                options: [
+                    { text: 'A. Más del 50% de nuestras compras se adjudican a proveedores locales u organizaciones diversas.', score: 25, rec: 'Encadenamiento responsable consolidado. Siga apoyando la economía local.' },
+                    { text: 'B. Entre el 10% y el 50% de las compras se realizan con criterios ecológicos o locales.', score: 15, rec: 'Incremente los criterios de ponderación social y ecológica en su comité de compras.' },
+                    { text: 'C. Compramos al mejor postor global sin auditar su impacto local o condiciones laborales.', score: 5, rec: 'Peligro en la cadena de valor. La insensibilidad en compras expone su reputación.' }
+                ]
+            },
+            {
+                category: 'Clientes y Quejas',
+                question: '5. ¿Cómo gestiona su directiva el canal de quejas de sus usuarios y los posibles sesgos de discriminación?',
+                options: [
+                    { text: 'A. Contamos con un canal seguro, auditable y la junta revisa periódicamente los casos.', score: 25, rec: 'Monitoreo ético de excelencia. Mantiene una escucha directa impecable.' },
+                    { text: 'B. Contamos con canal de quejas pero está tercerizado sin que la directiva se involucre.', score: 15, rec: 'Evite la sordera corporativa. Los líderes deben oír quejas reales una vez al mes.' },
+                    { text: 'C. No contamos con canales formales seguros ni estructuramos flujos contra represalias.', score: 5, rec: 'Riesgo de control interno. Facilite mecanismos robustos para salvaguardar la confianza.' }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let cumulativeScore = 0;
+        let quizRecommendations = [];
+
+        function renderQuestion() {
+            const quizProgress = document.getElementById('quiz-progress');
+            const categoryEl = document.getElementById('question-category');
+            const textEl = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+
+            // Update Progress Bar
+            const progressPercent = ((currentQuestionIndex + 1) / quizData.length) * 100;
+            quizProgress.style.width = `${progressPercent}%`;
+
+            const currentQ = quizData[currentQuestionIndex];
+            categoryEl.textContent = `Categoría: ${currentQ.category}`;
+            textEl.textContent = currentQ.question;
+
+            // Render Options
+            optionsContainer.innerHTML = '';
+            currentQ.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:bg-brand-soft hover:border-brand-mid transition-all duration-200 text-sm flex justify-between items-center group font-medium text-slate-800";
+                btn.innerHTML = `
+                    <span>${opt.text}</span>
+                    <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-brand-mid transition-colors"></i>
+                `;
+                btn.onclick = () => selectOption(opt.score, opt.rec);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(score, rec) {
+            cumulativeScore += score;
+            quizRecommendations.push(rec);
+
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            // Scale total score into a projection corresponding to B Corp 0-200 scale (e.g. max raw 125 mapped to projected BIA score)
+            // Raw max is 125. Let's map it: Projected BIA Score = (cumulativeScore / 125) * 150 + 40 (Projected range: 40 to 190 points)
+            const projectedBiaScore = Math.round((cumulativeScore / 125) * 130 + 40);
+
+            const quizScreen = document.getElementById('quiz-screen');
+            const resultScreen = document.getElementById('result-screen');
+            const finalScoreEl = document.getElementById('final-score');
+            const titleEl = document.getElementById('result-title');
+            const descEl = document.getElementById('result-desc');
+            const recsList = document.getElementById('recs-list');
+
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+
+            finalScoreEl.textContent = projectedBiaScore;
+
+            if (projectedBiaScore >= 120) {
+                finalScoreEl.className = "text-3xl font-extrabold text-[#16a34a]";
+                titleEl.textContent = "¡Empresa Líder e Innovadora de Impacto!";
+                descEl.textContent = "Su organización cuenta con una madurez de triple impacto sobresaliente. Su proceso de verificación con B Lab tiene altas probabilidades de éxito de la mano de ARA.";
+            } else if (projectedBiaScore >= 80) {
+                finalScoreEl.className = "text-3xl font-extrabold text-[#ca8a04]";
+                titleEl.textContent = "¡Buen Nivel, Cerca de la Meta B!";
+                descEl.textContent = "Su empresa tiene las bases del modelo de triple impacto. Requiere formalizar y auditar de forma técnica ciertos compromisos laborales y de huella de carbono para asegurar los 80 puntos obligatorios.";
+            } else {
+                finalScoreEl.className = "text-3xl font-extrabold text-[#ea580c]";
+                titleEl.textContent = "Bases Iniciales, Requiere Estructuración";
+                descEl.textContent = "Su organización opera bajo parámetros comerciales tradicionales. ARA le ayudará a construir desde los cimientos las políticas de gobernanza, compras responsables y bienestar necesarias.";
+            }
+
+            // Populate Recommendations list
+            recsList.innerHTML = '';
+            quizRecommendations.forEach(rec => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="font-semibold text-brand-darkest">✓</span> ${rec}`;
+                recsList.appendChild(li);
+            });
+        }
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            cumulativeScore = 0;
+            quizRecommendations = [];
+
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        // Form Submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const company = document.getElementById('company').value;
+            const name = document.getElementById('name').value;
+            
+            // Reemplaza el alert con un banner no invasivo
+            const formBox = document.getElementById('contact-form');
+            formBox.innerHTML = `
+                <div class="text-center py-8 space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-brand-soft border-2 border-brand-mid flex items-center justify-center mx-auto text-brand-dark text-2xl">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 class="font-title font-bold text-lg text-brand-darkest">¡Solicitud Recibida, ${name}!</h4>
+                    <p class="text-sm text-slate-500 max-w-sm mx-auto leading-relaxed">
+                        Hemos programado su solicitud de diagnóstico para <strong>${company}</strong>. Un especialista sénior de ARA Consultora le enviará una invitación de calendario en las próximas 24 horas hábiles.
+                    </p>
+                </div>
+            `;
+        }
+
+        // Sticky Navbar logic
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('bg-white/95', 'bg-white');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('bg-white', 'bg-white/95');
+            }
+        });
+
+        // Mobile Menu toggle logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Initialize Quiz on load
+        window.onload = function() {
+            renderQuestion();
+        }
+    </script>
+</body>
+</html>

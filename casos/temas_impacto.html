@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema B y Estándares de Impacto | ARA Consultora</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config matching the ARA Brand Ecosystem -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            darkest: '#0a221a',  /* Verde bosque profundo ARA */
+                            dark: '#1b4332',     /* Verde corporativo principal */
+                            mid: '#2d6a4f',      /* Verde medio activo */
+                            soft: '#f0fdf4',     /* Fondo sutil verde */
+                            accent: '#cba365',   /* Oro/Bronce de prestigio */
+                            grayBg: '#f8fafc',   /* Gris claro de alto contraste */
+                            light: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .card-shadow {
+            box-shadow: 0 10px 30px -10px rgba(27, 67, 50, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 20px 40px -10px rgba(27, 67, 50, 0.16);
+            transform: translateY(-4px);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #1b4332; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #cba365; }
+        
+        /* Modal Transition Utilities */
+        .modal-transition {
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-700 font-sans antialiased overflow-x-hidden">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 rounded bg-brand-dark flex items-center justify-center text-white font-title font-bold text-xl relative overflow-hidden">
+                        ARA
+                    </div>
+                    <div>
+                        <span class="font-title font-bold text-brand-darkest tracking-widest text-lg leading-none block">ARA</span>
+                        <span class="text-[10px] text-brand-mid uppercase tracking-[0.2em] font-semibold">Consultora</span>
+                    </div>
+                </a>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">Inicio</a>
+                    <a href="#que-es-sistema-b" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">¿Qué es Sistema B?</a>
+                    <a href="#temas-de-impacto" class="text-slate-600 hover:text-brand-mid text-sm font-medium transition-colors">Temas de Impacto</a>
+                    
+                    <!-- Dropdown de Casos -->
+                    <div class="relative group">
+                        <button class="text-brand-darkest font-semibold text-sm transition-colors flex items-center gap-1 py-2 focus:outline-none">
+                            Ecosistema B <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 mt-1 w-64 rounded-xl bg-white border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-2">
+                            <a href="casos-alqueria.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-soft hover:text-brand-dark transition-colors font-medium">
+                                <i class="fa-solid fa-cow mr-2 text-brand-accent"></i> Caso Alquería S.A.
+                            </a>
+                            <a href="casos-novatextil.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-soft hover:text-brand-dark transition-colors font-medium">
+                                <i class="fa-solid fa-shirt mr-2 text-brand-accent"></i> Caso NovaTextil S.A.S.
+                            </a>
+                            <a href="casos-daviplata.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-soft hover:text-brand-dark transition-colors font-medium">
+                                <i class="fa-solid fa-wallet mr-2 text-brand-accent"></i> Caso DaviPlata S.A.
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#equipo" class="bg-brand-dark text-white hover:bg-brand-accent px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md">Equipo ARA</a>
+                </div>
+
+                <!-- Botón Menú Mobile -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-accent p-2" aria-label="Abrir menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Mobile Desplegable -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-b border-slate-200 shadow-lg absolute w-full z-50">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">Inicio</a>
+                <a href="#que-es-sistema-b" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">¿Qué es Sistema B?</a>
+                <a href="#temas-de-impacto" class="text-slate-700 block px-3 py-3 rounded-md text-base font-medium border-b border-slate-100">Temas de Impacto</a>
+                
+                <div class="border-b border-slate-100 py-2">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest px-3 block mb-1">Ecosistema ARA</span>
+                    <a href="casos-alqueria.html" class="block px-6 py-2 text-slate-600 hover:text-brand-dark font-medium text-sm">Caso Alquería S.A.</a>
+                    <a href="casos-novatextil.html" class="block px-6 py-2 text-slate-600 hover:text-brand-dark font-medium text-sm">Caso NovaTextil S.A.S.</a>
+                    <a href="casos-daviplata.html" class="block px-6 py-2 text-slate-600 hover:text-brand-dark font-medium text-sm">Caso DaviPlata S.A.</a>
+                </div>
+
+                <a href="index.html#equipo" class="text-brand-dark font-bold block px-3 py-3 rounded-md text-base">Equipo ARA</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="relative min-h-[80vh] flex items-center bg-white pt-20 overflow-hidden">
+        <div class="absolute inset-0 w-full h-full z-0">
+            <!-- Imagen abstracta de desarrollo corporativo sostenible -->
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1920" alt="Estrategia y Sostenibilidad" class="w-full h-full object-cover object-center opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+            <div class="max-w-3xl py-12">
+                <div class="inline-flex items-center gap-2 bg-brand-soft border border-brand-mid/30 px-4 py-1.5 rounded-full text-brand-dark text-xs font-bold tracking-widest uppercase mb-6">
+                    <i class="fa-solid fa-seedling text-brand-accent animate-pulse"></i> Certificación y Triple Impacto
+                </div>
+                
+                <h1 class="font-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-darkest tracking-tight leading-none mb-6">
+                    Guiamos su Camino hacia la <br>
+                    <span class="text-brand-mid">Certificación Sistema B</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-800 font-light mb-8 leading-relaxed">
+                    Alineamos los nuevos estándares internacionales de B Lab con la estrategia interna de su organización, transformando la responsabilidad corporativa en rentabilidad y reputación duradera.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="#temas-de-impacto" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-mid text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-md text-sm uppercase tracking-wider">
+                        <i class="fa-solid fa-list-check"></i> Explorar Temas de Impacto
+                    </a>
+                    <a href="#que-es-sistema-b" class="inline-flex items-center gap-2 bg-white hover:bg-brand-soft text-brand-dark border border-brand-dark/20 px-8 py-4 rounded-full font-bold transition-all text-sm uppercase tracking-wider">
+                        Saber Más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. SECCIÓN: ¿QUÉ ES SISTEMA B? -->
+    <section id="que-es-sistema-b" class="bg-brand-grayBg py-24 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs">Propósito Sistémico</span>
+                    <h2 class="font-title text-3xl md:text-4xl font-bold text-brand-darkest leading-tight">
+                        Una Nueva Economía donde el Éxito se mide por el Bienestar General
+                    </h2>
+                    <div class="w-20 h-1 bg-brand-accent rounded-full"></div>
+                    
+                    <p class="text-slate-700 leading-relaxed font-light text-lg">
+                        <strong>Sistema B</strong> es una organización aliada de <strong>B Lab</strong> que promueve la transición hacia un modelo económico donde el éxito financiero de las corporaciones conviva armónicamente con la generación de valor para las personas, la comunidad y el medio ambiente.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed font-light text-base">
+                        A través de la prestigiosa certificación de <strong>Empresa B (B Corp)</strong>, las organizaciones asumen el compromiso ético y legal de auditar de forma transparente sus impactos, respondiendo con rigor técnico a las demandas globales de sostenibilidad integral.
+                    </p>
+                </div>
+                
+                <div class="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-brand-soft rounded-xl flex items-center justify-center text-brand-dark text-xl mb-4">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <h3 class="font-title font-bold text-lg text-brand-darkest mb-2">Compromiso Legal</h3>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">
+                                Modificación estatutaria que ampara a los administradores a velar por intereses de stakeholders no solo financieros.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-brand-soft rounded-xl flex items-center justify-center text-brand-dark text-xl mb-4">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                            </div>
+                            <h3 class="font-title font-bold text-lg text-brand-darkest mb-2">Mejora Continua</h3>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">
+                                Auditorías recurrentes cada 3 años que evalúan el cumplimiento estricto del estándar de impacto sistémico.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between md:col-span-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-soft rounded-xl flex items-center justify-center text-brand-dark text-xl shrink-0">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-title font-bold text-lg text-brand-darkest mb-1">Evaluación de Impacto B (BIA)</h3>
+                                <p class="text-slate-500 text-xs font-light leading-relaxed">
+                                    Herramienta global utilizada por más de 150.000 organizaciones para gestionar, auditar y elevar voluntariamente sus prácticas con miras a consolidarse en el mercado como líderes éticos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN: TEMAS DE IMPACTO -->
+    <section id="temas-de-impacto" class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-extrabold tracking-[0.2em] uppercase text-xs">Nuevos Estándares B Lab</span>
+                <h2 class="font-title text-3xl md:text-4xl font-extrabold text-brand-darkest mt-2 leading-tight">
+                    Requisitos de los Temas de Impacto
+                </h2>
+                <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-500 font-light mt-4 text-sm md:text-base">
+                    Mida su Impacto y realice un seguimiento de su progreso a medida que cumple los nuevos Estándares de B Lab (Basado en la taxonomía de <span class="italic">image_df8af3.jpg</span>).
+                </p>
+            </div>
+
+            <!-- GRID DE 7 TARJETAS (Representadas con el estilo cromático y simbólico exacto de image_df8af3.jpg) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- CARD 1: Gobernanza de las Partes Interesadas -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Vector Header - Naranjas (Inspirado en la paleta y forma de image_df8af3.jpg) -->
+                        <div class="h-44 bg-gradient-to-br from-[#fbe3d4] to-[#f4be9e] p-6 relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute -left-4 -bottom-4 w-24 h-24 bg-[#ea580c]/5 rounded-full"></div>
+                            <div class="absolute right-4 top-4 text-[#ea580c]/15 text-7xl font-bold"><i class="fa-solid fa-arrows-to-dot"></i></div>
+                            <!-- Central Circle Icon -->
+                            <div class="w-20 h-20 rounded-full bg-white border-4 border-slate-800 shadow-md flex items-center justify-center z-10">
+                                <i class="fa-solid fa-circle-dot text-[#ea580c] text-3xl animate-pulse"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-bold text-[#ea580c] uppercase tracking-wider block mb-2">PSG1.1 - PSG5.1 | Gobernanza</span>
+                            <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 leading-snug">Gobernanza de las Partes Interesadas</h3>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Las empresas actúan de acuerdo con un propósito definido e integran la gobernanza de las partes interesadas a la toma de decisiones corporativas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('gobernanza')" class="w-full inline-flex items-center justify-center gap-2 bg-[#ea580c] hover:bg-[#c2410c] text-white py-3 px-5 rounded-xl font-bold transition-colors text-xs uppercase tracking-wider shadow-sm">
+                            <i class="fa-solid fa-circle-info"></i> Profundizar Estándar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 2: Trabajo Justo (TJ) -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Vector Header - Azules (Inspirado en la paleta y forma de image_df8af3.jpg) -->
+                        <div class="h-44 bg-gradient-to-br from-[#dbeafe] to-[#93c5fd] p-6 relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#2563eb]/5 rounded-full"></div>
+                            <div class="absolute left-4 bottom-4 text-[#2563eb]/15 text-7xl font-bold"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                            <!-- Central Circle Icon -->
+                            <div class="w-20 h-20 rounded-full bg-white border-4 border-slate-800 shadow-md flex items-center justify-center z-10">
+                                <i class="fa-solid fa-people-carry-box text-[#2563eb] text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-bold text-[#2563eb] uppercase tracking-wider block mb-2">ESC1.1 - ESC5.1 | Colaboradores</span>
+                            <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 leading-snug">Trabajo Justo (TJ)</h3>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Las empresas ofrecen empleos de buena calidad y promueven activamente culturas organizacionales integras, predecibles y justas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('trabajo-justo')" class="w-full inline-flex items-center justify-center gap-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white py-3 px-5 rounded-xl font-bold transition-colors text-xs uppercase tracking-wider shadow-sm">
+                            <i class="fa-solid fa-circle-info"></i> Profundizar Estándar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 3: Justicia, Equidad, Diversidad e Inclusión (JEDI) -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Vector Header - Amarillos (Inspirado en la paleta y forma de image_df8af3.jpg) -->
+                        <div class="h-44 bg-gradient-to-br from-[#fef9c3] to-[#fde047] p-6 relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute -left-4 -top-4 w-24 h-24 bg-[#ca8a04]/5 rounded-full"></div>
+                            <div class="absolute right-4 bottom-4 text-[#ca8a04]/15 text-7xl font-bold"><i class="fa-solid fa-users"></i></div>
+                            <!-- Central Circle Icon -->
+                            <div class="w-20 h-20 rounded-full bg-white border-4 border-slate-800 shadow-md flex items-center justify-center z-10">
+                                <i class="fa-solid fa-rainbow text-[#ca8a04] text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-bold text-[#b45309] uppercase tracking-wider block mb-2">JEDI | Diversidad</span>
+                            <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 leading-snug">Justicia, Equidad, Diversidad...</h3>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Las empresas estructuran entornos de trabajo inclusivos y diversos que contribuyen formalmente a crear comunidades equitativas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('jedi')" class="w-full inline-flex items-center justify-center gap-2 bg-[#ca8a04] hover:bg-[#a16207] text-white py-3 px-5 rounded-xl font-bold transition-colors text-xs uppercase tracking-wider shadow-sm">
+                            <i class="fa-solid fa-circle-info"></i> Profundizar Estándar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 4: Derechos Humanos (DH) -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Vector Header - Rosados (Inspirado en la paleta y forma de image_df8af3.jpg) -->
+                        <div class="h-44 bg-gradient-to-br from-[#fce7f3] to-[#fbcfe8] p-6 relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-[#db2777]/5 rounded-full"></div>
+                            <div class="absolute left-4 top-4 text-[#db2777]/15 text-7xl font-bold"><i class="fa-solid fa-feather"></i></div>
+                            <!-- Central Circle Icon -->
+                            <div class="w-20 h-20 rounded-full bg-white border-4 border-slate-800 shadow-md flex items-center justify-center z-10">
+                                <i class="fa-solid fa-hand-holding-heart text-[#db2777] text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-bold text-[#db2777] uppercase tracking-wider block mb-2">HR1.2 - HR4.2 | Derechos</span>
+                            <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 leading-snug">Derechos Humanos (DH)</h3>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Las empresas tratan a las personas con dignidad y respetan escrupulosamente sus derechos humanos y civiles en toda la cadena.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('derechos-humanos')" class="w-full inline-flex items-center justify-center gap-2 bg-[#db2777] hover:bg-[#be185d] text-white py-3 px-5 rounded-xl font-bold transition-colors text-xs uppercase tracking-wider shadow-sm">
+                            <i class="fa-solid fa-circle-info"></i> Profundizar Estándar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 5: Acción Climática (AC) -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Vector Header - Azules verdosos (Inspirado en la paleta y forma de image_df8af3.jpg) -->
+                        <div class="h-44 bg-gradient-to-br from-[#ccfbf1] to-[#99f6e4] p-6 relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute -left-4 -bottom-4 w-24 h-24 bg-[#0d9488]/5 rounded-full"></div>
+                            <div class="absolute right-4 top-4 text-[#0d9488]/15 text-7xl font-bold"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                            <!-- Central Circle Icon -->
+                            <div class="w-20 h-20 rounded-full bg-white border-4 border-slate-800 shadow-md flex items-center justify-center z-10">
+                                <i class="fa-solid fa-temperature-three-quarters text-[#0d9488] text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-bold text-[#0d9488] uppercase tracking-wider block mb-2">AC1.1 - AC1.2 | Sostenibilidad</span>
+                            <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 leading-snug">Acción Climática (AC)</h3>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Las empresas asumen la responsabilidad directa de su huella de carbono midiendo, publicando y verificando de forma externa sus GEI.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('accion-climatica')" class="w-full inline-flex items-center justify-center gap-2 bg-[#0d9488] hover:bg-[#0f766e] text-white py-3 px-5 rounded-xl font-bold transition-colors text-xs uppercase tracking-wider shadow-sm">
+                            <i class="fa-solid fa-circle-info"></i> Profundizar Estándar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 6: Circularidad y Gestión Ambiental -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Vector Header - Verdes (Inspirado en la paleta y forma de image_df8af3.jpg) -->
+                        <div class="h-44 bg-gradient-to-br from-[#dcfce7] to-[#86efac] p-6 relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#16a34a]/5 rounded-full"></div>
+                            <div class="absolute left-4 bottom-4 text-[#16a34a]/15 text-7xl font-bold"><i class="fa-solid fa-leaf"></i></div>
+                            <!-- Central Circle Icon -->
+                            <div class="w-20 h-20 rounded-full bg-white border-4 border-slate-800 shadow-md flex items-center justify-center z-10">
+                                <i class="fa-solid fa-arrows-spin text-[#16a34a] text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-bold text-[#16a34a] uppercase tracking-wider block mb-2">ESC1.1 - ESC1.7 | Medio Ambiente</span>
+                            <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 leading-snug">Circularidad y Gestión Ambiental</h3>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Las empresas demuestran una gestión ambiental rigurosa migrando hacia un modelo de economía circular y reduciendo residuos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('circularidad')" class="w-full inline-flex items-center justify-center gap-2 bg-[#16a34a] hover:bg-[#15803d] text-white py-3 px-5 rounded-xl font-bold transition-colors text-xs uppercase tracking-wider shadow-sm">
+                            <i class="fa-solid fa-circle-info"></i> Profundizar Estándar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 7: Asuntos Gubernamentales y Acción Colectiva (GACA) -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200/80 flex flex-col justify-between md:col-span-2 lg:col-span-1">
+                    <div>
+                        <!-- Vector Header - Morados (Inspirado en la paleta y forma de image_df8af3.jpg) -->
+                        <div class="h-44 bg-gradient-to-br from-[#f3e8ff] to-[#d8b4fe] p-6 relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute -left-4 -top-4 w-24 h-24 bg-[#9333ea]/5 rounded-full"></div>
+                            <div class="absolute right-4 bottom-4 text-[#9333ea]/15 text-7xl font-bold"><i class="fa-solid fa-building-shield"></i></div>
+                            <!-- Central Circle Icon -->
+                            <div class="w-20 h-20 rounded-full bg-white border-4 border-slate-800 shadow-md flex items-center justify-center z-10">
+                                <i class="fa-solid fa-people-group text-[#9333ea] text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-bold text-[#9333ea] uppercase tracking-wider block mb-2">GACA1.1 - GACA3.1 | Acción Colectiva</span>
+                            <h3 class="font-title text-xl font-bold text-brand-darkest mb-3 leading-snug">Asuntos Gubernamentales</h3>
+                            <p class="text-slate-500 text-sm font-light leading-relaxed">
+                                Las empresas desempeñan un papel de liderazgo transparente y ético en el fomento del cabildeo responsable y la cohesión sectorial.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('gubernamentales')" class="w-full inline-flex items-center justify-center gap-2 bg-[#9333ea] hover:bg-[#7e22ce] text-white py-3 px-5 rounded-xl font-bold transition-colors text-xs uppercase tracking-wider shadow-sm">
+                            <i class="fa-solid fa-circle-info"></i> Profundizar Estándar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="bg-brand-darkest text-white py-24 relative overflow-hidden">
+        <div class="absolute -right-40 -bottom-40 w-96 h-96 bg-brand-mid/20 rounded-full blur-3xl"></div>
+        <div class="absolute -left-40 -top-40 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 space-y-6">
+            <h2 class="font-title text-3xl md:text-5xl font-extrabold tracking-tight">¿Su Organización está Lista para la Certificación B?</h2>
+            <p class="text-slate-300 font-light max-w-2xl mx-auto text-base md:text-lg">
+                El proceso de certificación requiere rigor metodológico, documentación transparente y alineamiento directivo. En **ARA Consultora** le guiamos paso a paso para mitigar fallos, optimizar procesos y asegurar la consecución de este valioso hito empresarial.
+            </p>
+            <div class="pt-6">
+                <a href="index.html#contacto" class="bg-brand-accent hover:bg-white text-brand-darkest hover:text-brand-darkest px-10 py-4 rounded-full font-bold transition duration-300 shadow-xl inline-block text-xs uppercase tracking-widest">
+                    Solicitar Diagnóstico de Alineación B
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-darkest text-slate-400 py-12 px-6 border-t-4 border-brand-accent text-center text-xs">
+        <p class="mb-2 text-white">© 2026 ARA Consultora. Todos los derechos reservados.</p>
+        <p class="max-w-2xl mx-auto opacity-70">
+            Firma consultora especializada en Gobernanza Ética, Responsabilidad Empresarial y Creación de Valor Compartido adaptada al entorno adaptativo y regulatorio de América Latina.
+        </p>
+    </footer>
+
+    <!-- DYNAMIC INTERACTIVE MODAL FOR STUDY MATERIALS DEEP DIVE -->
+    <div id="infoModal" class="fixed inset-0 z-50 hidden overflow-y-auto" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        
+        <!-- Modal Wrapper -->
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-6 lg:p-8">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 w-full max-w-4xl border border-slate-200 flex flex-col max-h-[90vh]">
+                
+                <!-- Dynamic Header -->
+                <div id="modalHeader" class="px-6 py-5 flex items-center justify-between border-b shrink-0 text-white">
+                    <div class="flex items-center gap-3">
+                        <div id="modalIconBox" class="w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-white/20">
+                            <!-- Dynamic Icon Here -->
+                        </div>
+                        <div>
+                            <h3 id="modalTitle" class="text-lg md:text-xl font-title font-bold leading-none"><!-- Dynamic Title --></h3>
+                            <span id="modalSub" class="text-xs uppercase tracking-wider font-semibold opacity-90 block mt-1"><!-- Dynamic Subtitle --></span>
+                        </div>
+                    </div>
+                    <button onclick="closeModal()" class="text-white/80 hover:text-white p-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-white/50" aria-label="Cerrar">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Scrollable Body Content -->
+                <div id="modalContent" class="px-6 py-6 overflow-y-auto space-y-8 bg-slate-50 text-slate-900 leading-relaxed text-sm md:text-base">
+                    <!-- Dynamic Content Populated by JavaScript -->
+                </div>
+
+                <!-- Footer -->
+                <div class="bg-slate-100 px-6 py-4 flex justify-end gap-3 border-t border-slate-200 shrink-0">
+                    <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-colors">
+                        Entendido, Cerrar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Modal database containing the detailed summaries provided by the user
+        const modalData = {
+            'gobernanza': {
+                color: 'bg-[#ea580c]',
+                border: 'border-[#ea580c]',
+                icon: '<i class="fa-solid fa-arrows-to-dot"></i>',
+                title: 'Gobernanza de las Partes Interesadas y Propósito (GPIP)',
+                subtitle: 'Sistema B • PSG1.1 a PSG5.1',
+                html: `
+                    <div class="space-y-6">
+                        <div class="bg-[#fbe3d4]/30 border-l-4 border-[#ea580c] p-5 rounded-r-xl">
+                            <h4 class="font-bold text-[#ea580c] text-lg mb-2">Objetivo del Estándar</h4>
+                            <p class="text-slate-800 text-sm leading-relaxed">
+                                Asegurar que las empresas no tomen decisiones únicamente pensando en la rentabilidad económica, sino también en el impacto que generan sobre las personas, las comunidades y el medio ambiente.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                                <h5 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-bullseye text-[#ea580c]"></i> Tema 1: Propósito Público (PSG1.1)
+                                </h5>
+                                <p class="text-slate-600 text-xs font-light leading-relaxed">
+                                    Toda empresa debe tener un propósito público estructurado que explique el impacto social/ambiental que busca resolver, conectado directamente con la estrategia del negocio y aprobado por la junta. No es marketing; es la brújula del negocio.
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                                <h5 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-people-arrows text-[#ea580c]"></i> Tema 2: Gobernanza de Stakeholders (PSG2.1)
+                                </h5>
+                                <p class="text-slate-600 text-xs font-light leading-relaxed">
+                                    Escucha activa y obligatoria de todos los grupos afectados: colaboradores, clientes, proveedores, inversionistas, comunidad local y medio ambiente antes de tomar decisiones estratégicas en juntas.
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                                <h5 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-comments text-[#ea580c]"></i> Tema 3: Quejas y Resolución (PSG3.1 y 3.2)
+                                </h5>
+                                <p class="text-slate-600 text-xs font-light leading-relaxed">
+                                    Un canal seguro, transparente, documentado y protegido contra represalias que permite monitorear y remediar oportuna y legalmente los impactos negativos que genera la operación comercial.
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                                <h5 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-magnifying-glass-chart text-[#ea580c]"></i> Tema 4: Marketing Responsable (PSG4.2)
+                                </h5>
+                                <p class="text-slate-600 text-xs font-light leading-relaxed">
+                                    Evitar a toda costa prácticas de <strong class="text-brand-dark">greenwashing</strong> o <strong class="text-brand-dark">impact washing</strong>. Las afirmaciones sobre sostenibilidad deben ser veraces, estar respaldadas con datos duros y ser proporcionales.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-200 pt-6 space-y-4">
+                            <h4 class="font-title font-bold text-[#ea580c] text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-user-tie"></i> Supervisión desde la Alta Dirección (PSG5.1)
+                            </h4>
+                            <p class="text-slate-700 text-sm">
+                                B Corp exige que el avance del propósito público, los indicadores ESG y las quejas sean revisados periódicamente por el máximo órgano de gobierno corporativo. No se permite delegar esto como una iniciativa aislada de un solo departamento.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-100 p-5 rounded-xl border border-slate-200/60 mt-6 text-xs">
+                            <span class="text-slate-800 font-bold uppercase block mb-2">¿Qué revisará el auditor en este tema?</span>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-slate-600 list-disc pl-5">
+                                <li>Declaración de propósito en estatutos públicos de la empresa.</li>
+                                <li>Matriz formalizada de stakeholders y evidencias de participación.</li>
+                                <li>Procedimiento documentado y registro de casos de canales de quejas.</li>
+                                <li>Evidencia del reporte periódico presentado a la Junta Directiva.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'trabajo-justo': {
+                color: 'bg-[#2563eb]',
+                border: 'border-[#2563eb]',
+                icon: '<i class="fa-solid fa-people-carry-box"></i>',
+                title: 'Estándar de Trabajo Justo (TJ)',
+                subtitle: 'Sistema B • Criterios Laborales de Excelencia',
+                html: `
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 border-l-4 border-[#2563eb] p-5 rounded-r-xl">
+                            <h4 class="font-bold text-[#2563eb] text-lg mb-2">Objetivo del Estándar</h4>
+                            <p class="text-slate-800 text-sm leading-relaxed">
+                                Garantizar que las relaciones laborales se desarrollen bajo estrictos principios de transparencia, equidad salarial, previsibilidad financiera y respeto a la dignidad del trabajador, complementando la legislación local.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h4 class="font-title font-bold text-slate-900 text-base">Áreas Críticas de Intervención Laboral</h4>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+                                <div class="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
+                                    <strong class="text-[#2563eb] block mb-2"><i class="fa-solid fa-scale-balanced mr-1"></i> Límites de Ley y Accesibilidad</strong>
+                                    La legislación local es la base mínima obligatoria. Se exige que contratos y nóminas estén adaptados a formatos comprensibles para personas con discapacidad o traducidos a idiomas nativos del colaborador.
+                                </div>
+                                <div class="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
+                                    <strong class="text-[#2563eb] block mb-2"><i class="fa-solid fa-clock mr-1"></i> Previsibilidad de Turnos Variables</strong>
+                                    Las cancelaciones de turnos de última hora deben estar normadas. Si la empresa cancela una jornada sin el preaviso debido por causas propias, debe asumir la responsabilidad económica total del día.
+                                </div>
+                                <div class="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
+                                    <strong class="text-[#2563eb] block mb-2"><i class="fa-solid fa-dollar-sign mr-1"></i> Equidad Salarial en Contratación</strong>
+                                    Prohibición estricta de solicitar historiales salariales o usar ingresos previos como referencia para fijar la compensación en la contratación, eliminando la brecha de género acumulada.
+                                </div>
+                                <div class="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
+                                    <strong class="text-[#2563eb] block mb-2"><i class="fa-solid fa-receipt mr-1"></i> Transparencia y Nóminas Claras</strong>
+                                    Las estructuras de remuneración (salarios, comisiones, beneficios, bonos) deben ser claras. Las nóminas se entregarán puntualmente bajo un lenguaje sencillo, libre de abreviaturas incomprensibles.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
+                            <h4 class="font-title font-bold text-brand-darkest text-sm mb-2"><i class="fa-solid fa-house-laptop mr-1"></i> Regla de oro para Subsidiarias y Matriz</h4>
+                            <p class="text-slate-700 text-xs leading-relaxed">
+                                No basta con declarar que existe una política emanada de la casa matriz internacional. Se requiere evidencias empíricas de implementación real, métricas locales, rendición de cuentas e impacto positivo sobre el personal de la sede local que busca la certificación.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            'jedi': {
+                color: 'bg-[#ca8a04]',
+                border: 'border-[#ca8a04]',
+                icon: '<i class="fa-solid fa-rainbow"></i>',
+                title: 'Justicia, Equidad, Diversidad e Inclusión (JEDI)',
+                subtitle: 'Sistema B • Construcción de Entornos Inclusivos',
+                html: `
+                    <div class="space-y-6">
+                        <div class="bg-[#fef9c3]/30 border-l-4 border-[#ca8a04] p-5 rounded-r-xl">
+                            <h4 class="font-bold text-[#b45309] text-lg mb-2">Objetivo del Estándar</h4>
+                            <p class="text-slate-800 text-sm leading-relaxed">
+                                Escuchar de forma estructurada a los trabajadores y recopilar información sociodemográfica que sirva para diseñar entornos laborales libres de discriminación, promoviendo la equidad de oportunidades.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                                <span class="bg-[#fef9c3] text-[#b45309] text-[10px] font-bold px-2 py-0.5 rounded uppercase">Empresas 11 a 49 colaboradores</span>
+                                <h4 class="font-bold text-slate-900 text-sm">Diálogo sobre Diversidad</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    Deben realizar obligatoriamente al menos una encuesta o taller de diálogo estructurado sobre diversidad e inclusión y documentar formalmente las conclusiones y compromisos adquiridos.
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                                <span class="bg-[#fef9c3] text-[#b45309] text-[10px] font-bold px-2 py-0.5 rounded uppercase">Empresas de 50 o más colaboradores</span>
+                                <h4 class="font-bold text-slate-900 text-sm">Análisis de Datos de Género</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    Obligatoriedad de recopilar, auditar y analizar métricas de brecha salarial por género, distribución jerárquica y promociones para identificar anomalías estructurales.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h4 class="font-title font-bold text-[#b45309] text-base"><i class="fa-solid fa-user-shield"></i> Privacidad y Participación Voluntaria</h4>
+                            <p class="text-slate-700 text-sm leading-relaxed">
+                                Toda recopilación de datos de identidad o sociodemográficos debe respetar la privacidad del colaborador. La participación es estrictamente voluntaria y debe asegurarse la opción de anonimato absoluto para evitar represalias inconscientes o sesgos.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            'derechos-humanos': {
+                color: 'bg-[#db2777]',
+                border: 'border-[#db2777]',
+                icon: '<i class="fa-solid fa-hand-holding-heart"></i>',
+                title: 'Estándar de Derechos Humanos (DH)',
+                subtitle: 'Sistema B • Prevención y Debida Diligencia',
+                html: `
+                    <div class="space-y-6">
+                        <div class="bg-[#fce7f3]/30 border-l-4 border-[#db2777] p-5 rounded-r-xl">
+                            <h4 class="font-bold text-[#db2777] text-lg mb-2">Objetivo del Estándar</h4>
+                            <p class="text-slate-800 text-sm leading-relaxed">
+                                Prevenir, identificar, gestionar y remediar eficazmente los impactos negativos sobre los derechos de las personas a lo largo de las operaciones y de la cadena de valor comercial.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 text-xs md:text-sm">
+                            <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-building-user text-[#db2777]"></i> 1. Política de Derechos Humanos (HR1.2)
+                                </h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    La junta directiva debe aprobar y publicar una política de DH alineada con los Principios Rectores de la ONU, la Declaración Universal y los convenios de la OIT.
+                                </p>
+                            </div>
+
+                            <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-[#db2777]"></i> 2. Identificación de Riesgos (HR2.1)
+                                </h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    Evaluación obligatoria que identifique posibles riesgos para los derechos humanos en las operaciones y cadena de suministro. Debe actualizarse al menos cada 36 meses.
+                                </p>
+                            </div>
+
+                            <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-arrow-up-right-dots text-[#db2777]"></i> 3. Gestión y Escalamiento (HR3.1)
+                                </h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    Protocolo formal para centralizar, analizar, priorizar según severidad, escalar e implementar soluciones ante denuncias de impactos negativos en las personas.
+                                </p>
+                            </div>
+
+                            <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-truck-ramp-box text-[#db2777]"></i> 4. Derechos en Compras (HR4.2)
+                                </h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    Extender de forma mandatoria la auditoría a las decisiones de compra, exigiendo estándares de condiciones laborales seguras a proveedores críticos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'accion-climatica': {
+                color: 'bg-[#0d9488]',
+                border: 'border-[#0d9488]',
+                icon: '<i class="fa-solid fa-temperature-three-quarters"></i>',
+                title: 'Estándar de Acción Climática (AC)',
+                subtitle: 'Sistema B • Rigor Científico y Descarbonización',
+                html: `
+                    <div class="space-y-6">
+                        <div class="bg-[#ccfbf1]/30 border-l-4 border-[#0d9488] p-5 rounded-r-xl">
+                            <h4 class="font-bold text-[#0d9488] text-lg mb-2">Objetivo del Estándar</h4>
+                            <p class="text-slate-800 text-sm leading-relaxed">
+                                Asumir de forma activa la responsabilidad sobre la huella de carbono, estableciendo un proceso corporativo anual para la medición, reporte y verificación de Gases de Efecto Invernadero (GEI).
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h4 class="font-title font-bold text-slate-900 text-base">Análisis de Requisitos Clave</h4>
+                            
+                            <div class="space-y-3 text-xs md:text-sm">
+                                <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                    <strong class="text-[#0d9488] block mb-1">Medición y Reporte de Emisiones (AC1.1):</strong>
+                                    Medir anualmente Alcance 1, 2 y 3. Los datos deben divulgarse públicamente (informes anuales, web o reportes de sostenibilidad) desde el año fiscal anterior a la postulación corporativa.
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                    <strong class="text-[#0d9488] block mb-1">Doble Enfoque de Cálculo (AC1.1.2):</strong>
+                                    Registrar las emisiones bajo dos enfoques metodológicos: <strong>basadas en la ubicación</strong> (promedio de la red eléctrica local) y <strong>basadas en el mercado</strong> (acuerdos comerciales de energía renovable).
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                    <strong class="text-[#0d9488] block mb-1">Responsabilidad en Alcance 3:</strong>
+                                    Estimar emisiones "aguas arriba" y "aguas abajo". Se deben jerarquizar los métodos: 1) Específico del proveedor, 2) Híbrido, 3) Datos medios y 4) Basado en el gasto. Las exclusiones deben justificarse.
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                    <strong class="text-[#0d9488] block mb-1">Verificación por Tercero Independiente (AC1.2):</strong>
+                                    Rigor metodológico ISO 14064-1 o Protocolo GEI verificado de forma obligatoria por un organismo acreditado externamente (ISAE 3410 o similar) para validar el inventario.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'circularidad': {
+                color: 'bg-[#16a34a]',
+                border: 'border-[#16a34a]',
+                icon: '<i class="fa-solid fa-arrows-spin"></i>',
+                title: 'Circularidad y Gestión Ambiental',
+                subtitle: 'Sistema B • Sostenibilidad Operativa',
+                html: `
+                    <div class="space-y-6">
+                        <div class="bg-green-50 border-l-4 border-[#16a34a] p-5 rounded-r-xl">
+                            <h4 class="font-bold text-[#16a34a] text-lg mb-2">Objetivo del Estándar</h4>
+                            <p class="text-slate-800 text-sm leading-relaxed">
+                                Comprender, medir y gestionar rigurosamente el impacto ecológico de la empresa, impulsando prácticas de economía circular para reducir residuos en toda la cadena de valor.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h4 class="font-title font-bold text-slate-900 text-base">Focos Críticos de Control Ambiental</h4>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+                                <div class="p-4 bg-white rounded-lg border border-slate-200">
+                                    <strong class="text-[#16a34a] block mb-1">1. Gestión de Residuos (ESC1.1):</strong>
+                                    Registro y clasificación de residuos no peligrosos, peligrosos y alimenticios. Monitorear cuánto se composta, recicla, valoriza o termina en relleno sanitario.
+                                </div>
+                                <div class="p-4 bg-white rounded-lg border border-slate-200">
+                                    <strong class="text-[#16a34a] block mb-1">2. Consumo de Energía (ESC1.2):</strong>
+                                    Medir el consumo energético total en gigajulios (GJ), identificar el porcentaje de fuentes renovables propias o contratadas y aplicar planes de eficiencia.
+                                </div>
+                                <div class="p-4 bg-white rounded-lg border border-slate-200">
+                                    <strong class="text-[#16a34a] block mb-1">3. Agua y Riesgo Hídrico (ESC1.3):</strong>
+                                    Monitorear de forma mensual la extracción e identificar instalaciones ubicadas en zonas con alto riesgo hídrico para destinar planes de mitigación prioritarios.
+                                </div>
+                                <div class="p-4 bg-white rounded-lg border border-slate-200">
+                                    <strong class="text-[#16a34a] block mb-1">4. Compras Sostenibles (ESC5.1):</strong>
+                                    Integrar criterios ecológicos a la contratación de proveedores y compras críticas de materias primas, reduciendo la huella de terceros.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-100 p-4 rounded-lg border text-xs">
+                            <strong class="text-slate-800 block mb-1"><i class="fa-solid fa-cow mr-1"></i> Bienestar Animal (ESC1.6) - Solo cuando aplica:</strong>
+                            Para las industrias vinculadas a la cría, transporte o sacrificio de animales, es un requisito insoslayable monitorear de forma sistemática el cumplimiento de las <strong>Cinco Libertades del Bienestar Animal</strong> y la legislación aplicable.
+                        </div>
+                    </div>
+                `
+            },
+            'gubernamentales': {
+                color: 'bg-[#9333ea]',
+                border: 'border-[#9333ea]',
+                icon: '<i class="fa-solid fa-people-group"></i>',
+                title: 'Asuntos Gubernamentales y Acción Colectiva',
+                subtitle: 'Sistema B • Coherencia Política, Fiscal e Incidencia',
+                html: `
+                    <div class="space-y-6">
+                        <div class="bg-purple-50 border-l-4 border-[#9333ea] p-5 rounded-r-xl">
+                            <h4 class="font-bold text-[#9333ea] text-lg mb-2">Objetivo del Estándar</h4>
+                            <p class="text-slate-800 text-sm leading-relaxed">
+                                Asegurar que las actividades de influencia política, cabildeo y planeación fiscal sean éticas y transparentes, promoviendo al mismo tiempo cambios sistémicos del mercado mediante la colaboración proactiva.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h4 class="font-title font-bold text-slate-900 text-sm">Componentes Clave de Gobernanza</h4>
+                            
+                            <div class="space-y-3 text-xs md:text-sm">
+                                <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                    <strong class="text-[#9333ea] block mb-1">Política de Cabildeo Responsable (GACA1.1):</strong>
+                                    Obligación de formalizar y publicar una política que alinee las actividades de incidencia política con los ODS. Si la empresa no hace cabildeo, se debe declarar públicamente.
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                    <strong class="text-[#9333ea] block mb-1">Informe Público de Gastos (GACA1.2):</strong>
+                                    Reportar anualmente los gastos y contribuciones económicas o en especie destinadas a gremios, cámaras de comercio o intermediarios de cabildeo político.
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                    <strong class="text-[#9333ea] block mb-1">Estrategia de Acción Colectiva (GACA2.5):</strong>
+                                    Se prohíbe el rol pasivo de observador. La empresa debe participar de forma demostrable en iniciativas multiactor. Exige al menos 2 acciones antes del Año 0, y 4 en el Año 3.
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                    <strong class="text-[#9333ea] block mb-1">Política Fiscal Responsable (GACA3.1):</strong>
+                                    Documentar formalmente que la estrategia impositiva de la empresa respalda el desarrollo del país, prohibiendo el desvío de utilidades hacia paraísos fiscales.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-purple-100/50 p-4 rounded-lg border border-purple-200/50 text-xs">
+                            <strong class="text-slate-800 block mb-1"><i class="fa-solid fa-shield mr-1"></i> Cláusula para Subsidiarias Internacionales:</strong>
+                            No basta con la aprobación fiscal o de políticas de la casa matriz. El órgano directivo local debe ratificar por acta local las políticas, rendir cuentas de forma territorial y ejecutar las acciones con impacto de causa-efecto directo en el país.
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // Modal triggers
+        function openModal(key) {
+            const data = modalData[key];
+            if (!data) return;
+
+            // Header classes management
+            const header = document.getElementById('modalHeader');
+            header.className = `${data.color} px-6 py-5 flex items-center justify-between border-b shrink-0 text-white`;
+
+            // Populating dynamic fields
+            document.getElementById('modalIconBox').innerHTML = data.icon;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalSub').textContent = data.subtitle;
+            document.getElementById('modalContent').innerHTML = data.html;
+
+            // Show Modal and freeze body scroll
+            const modal = document.getElementById('infoModal');
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('infoModal');
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('bg-white/95', 'bg-white');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('bg-white', 'bg-white/95');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
